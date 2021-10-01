@@ -1,0 +1,15 @@
+{
+    "name": "ashutoshraghuwanshi/php-client-examples",
+    "description": "Description goes here.",
+    "type": "project",
+    "require": {
+        "dynamicpdf/api": "v0.9.1-beta"
+    },
+    "authors": [
+        {
+            "name": "Ashutosh Raghuwanshi",
+            "email": "ashutosh@dynamicpdf.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
