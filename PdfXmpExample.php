@@ -5,12 +5,11 @@ use DynamicPDF\Api\PdfXmp;
 
 class PdfXmpExample
 {
-
-    public static function RunExample($baseUrl, $basePath)
+    private static string $BasePath = __DIR__;
+    public static function RunExample()
     {
-        $resource = new PdfResource($basePath . "/Resources/client-libraries-examples/fw4.pdf");
+        $resource = new PdfResource(PdfXmpExample::$BasePath . "/Resources/client-libraries-examples/fw4.pdf");
         $pdfXmp = new PdfXmp($resource);
-        $pdfXmp->BaseUrl = $baseUrl;
         $response = $pdfXmp->Process();
         echo ($response->Content);
     }

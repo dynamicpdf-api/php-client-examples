@@ -3,7 +3,7 @@
     "description": "Description goes here.",
     "type": "project",
     "require": {
-        "dynamicpdf/api": "v0.9.1-beta"
+        "dynamicpdf/api": "v0.x.x"
     },
     "authors": [
         {

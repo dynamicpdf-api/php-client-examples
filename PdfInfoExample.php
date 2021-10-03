@@ -5,13 +5,12 @@ use DynamicPDF\Api\PdfInfo;
 
 class PdfInfoExample
 {
-    // simple example from Getting Started - pdf-info
-
-    public static function RunExample($baseUrl, $basePath)
+    private static string $BasePath = __DIR__;
+    // Simple example from Getting Started - pdf-info
+    public static function RunExample()
     {
-        $resource = new PdfResource($basePath . "/Resources/client-libraries-examples/fw4.pdf");
+        $resource = new PdfResource(PdfInfoExample::$BasePath . "/Resources/client-libraries-examples/fw4.pdf");
         $pdfInfo = new PdfInfo($resource);
-        $pdfInfo->BaseUrl = $baseUrl;
         $response = $pdfInfo->Process();
         if ($response->JsonContent != null) {
             echo ($response->JsonContent);

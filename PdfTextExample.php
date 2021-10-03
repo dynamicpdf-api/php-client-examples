@@ -5,13 +5,12 @@ use DynamicPDF\Api\PdfText;
 
 class PdfTextExample
 {
-    // simple example from Getting Started - pdf-text
-
-    public static function RunExample($baseUrl, $basePath)
+    private static string $BasePath = __DIR__;
+    // Simple example from Getting Started - pdf-text
+    public static function RunExample()
     {
-        $resource = new PdfResource($basePath . "/Resources/client-libraries-examples/fw4.pdf");
+        $resource = new PdfResource(PdfTextExample::$BasePath . "/Resources/client-libraries-examples/fw4.pdf");
         $pdfText = new PdfText($resource);
-        $pdfText->BaseUrl = $baseUrl;
         $response = $pdfText->Process();
         echo ($response->JsonContent);
     }
