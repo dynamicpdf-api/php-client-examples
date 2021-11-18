@@ -15,43 +15,34 @@ class RunTest
 {
     public static  function RunMainTest(): void
     {
-        global $argv, $argc;
-        if ($argc < 2) {
-            echo "\nUsage:\nphp $argv[0] <Api Key> [Base URL]\n\n";
-            echo "<Api Key>\t: Api key for server authentication.\n";
-            echo "[Base URL]\t: (Optional) Server base URL in case of custom server is used.\n";
-            exit - 1;
-        }
-        if ($argc >= 2) {
-            \DynamicPDF\Api\Pdf::$DefaultApiKey = $argv[1];
-        }
-        if ($argc > 2) {
-            \DynamicPDF\Api\Pdf::$DefaultBaseUrl = $argv[2];
-        }
+            \DynamicPDF\Api\Pdf::$DefaultApiKey = "DP.poEtD7F5tD1Ulp3qPcolUFaCcQFxWOvuNUqm/WragUdOSaAesnu3L6XE";
+      
+            \DynamicPDF\Api\Pdf::$DefaultBaseUrl = "https://api.dynamicpdf.com/v1.0/";
+       
 
-        RunTest::PrintDivider("Pdf Info Example");
-        PdfInfoExample::RunExample();
+    //    RunTest::PrintDivider("Pdf Info Example");
+    //    PdfInfoExample::RunExample();
 
-        RunTest::PrintDivider("Image Info Example (1)");
-        ImageInfoExample::RunExampleOne();
+     //   RunTest::PrintDivider("Image Info Example (1)");
+     //   ImageInfoExample::RunExampleOne();
 
-        RunTest::PrintDivider("Image Info Example (2)");
-        ImageInfoExample::RunExampleTwo();
+    //    RunTest::PrintDivider("Image Info Example (2)");
+    //    ImageInfoExample::RunExampleTwo();
 
-        RunTest::PrintDivider("Pdf Text Example");
-        PdfTextExample::RunExample();
+    //    RunTest::PrintDivider("Pdf Text Example");
+    //    PdfTextExample::RunExample();
 
-        RunTest::PrintDivider("Pdf Xmp Example");
-        PdfXmpExample::RunExample();
+    //    RunTest::PrintDivider("Pdf Xmp Example");
+    //    PdfXmpExample::RunExample();
 
-        RunTest::PrintDivider("Pdf Example");
-        PdfExample::RunExample();
+    //    RunTest::PrintDivider("Pdf Example");
+    //    PdfExample::RunExample();
 
         RunTest::PrintDivider("DlexLayout Example");
         DlexLayoutExample::RunExample();
 
-        RunTest::PrintDivider("Instructions Example");
-        InstructionsExample::DemoInstructions();
+      //  RunTest::PrintDivider("Instructions Example");
+      //  InstructionsExample::DemoInstructions();
     }
 
     public  static function PrintDivider($exampleName)
