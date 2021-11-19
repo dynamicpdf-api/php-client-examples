@@ -5,7 +5,7 @@ use DynamicPDF\Api\PdfInfo;
 
 class PdfInfoExample
 {
-    private static string $BasePath = __DIR__;
+    private static $BasePath = __DIR__;
     // Simple example from Getting Started - pdf-info
     public static function RunExample()
     {

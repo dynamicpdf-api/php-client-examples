@@ -20,7 +20,7 @@ use DynamicPDF\Api\FormField;
 
 class InstructionsExample
 {
-	private static string $BasePath = __DIR__ . "/..";
+	private static $BasePath = __DIR__ . "/..";
 	public static function TemplateExample()
 	{
 		$pdf = new Pdf();

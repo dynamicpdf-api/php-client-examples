@@ -8,7 +8,7 @@ use DynamicPDF\Api\Font;
 
 class PdfExample
 {
-    private static string $BasePath = __DIR__;
+    private static $BasePath = __DIR__;
     public static function RunExample()
     {
         $pdf = new Pdf();
