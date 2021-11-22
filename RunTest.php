@@ -11,6 +11,7 @@ require_once(__DIR__ . './instructions/InstructionsExample.php');
 require_once(__DIR__ . './FormFillExample.php');
 require_once(__DIR__ . './SimpleDlexMergeExample.php');
 require_once(__DIR__ . './OutlineTutorialExample.php');
+require_once(__DIR__ . './SimpleFormFillExample.php');
 
 RunTest::RunMainTest();
 
@@ -50,8 +51,11 @@ class RunTest
       //  RunTest::PrintDivider("Simple Dlex Merge Tutorial");
        // SimpleDlexMergeExample::RunExample();
 
-        RunTest::PrintDivider("Outline Tutorial Example");
-        OutlineTutorialExample::RunExample();
+      //  RunTest::PrintDivider("Outline Tutorial Example");
+      //  OutlineTutorialExample::RunExample();
+
+      RunTest::PrintDivider("SimpleForm Fill Tutorial Example");
+      SimpleFormFillExample::RunExample();
 
       //  RunTest::PrintDivider("Instructions Example");
       //  InstructionsExample::DemoInstructions();
