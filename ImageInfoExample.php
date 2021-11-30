@@ -5,7 +5,7 @@ use DynamicPDF\Api\ImageInfo;
 
 class ImageInfoExample
 {
-    private static string $BasePath = __DIR__;
+    private static $BasePath = __DIR__;
 
     // Simple example from Getting Started - image-info for
     public static function RunExampleOne()
