@@ -19,7 +19,7 @@ class RunTest
 {
     public static  function RunMainTest(): void
     {
-            DynamicPDF\Api\Pdf::$DefaultApiKey = "DP.poEtD7F5tD1Ulp3qPcolUFaCcQFxWOvuNUqm/WragUdOSaAesnu3L6XE";
+            DynamicPDF\Api\Pdf::$DefaultApiKey = "api key goes here";
       
             DynamicPDF\Api\Pdf::$DefaultBaseUrl = "https://api.dynamicpdf.com/v1.0/";
        
