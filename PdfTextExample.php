@@ -5,7 +5,7 @@ use DynamicPDF\Api\PdfText;
 
 class PdfTextExample
 {
-    private static string $BasePath = __DIR__;
+    private static $BasePath = __DIR__;
     // Simple example from Getting Started - pdf-text
     public static function RunExample()
     {
