@@ -12,9 +12,17 @@ class GettingStartedInFive
     {
         $layoutData = new LayoutDataResource(GettingStartedInFive::$BasePath . "getting-started.json");
         $dlexEndpoint = new DlexLayout("samples/getting-started/getting-started.dlex", $layoutData);
-        $dlexEndpoint->ApiKey = "DP.poEtD7F5tD1Ulp3qPcolUFaCcQFxWOvuNUqm/WragUdOSaAesnu3L6XE";
+        $dlexEndpoint->ApiKey = "xDP.jNFADSRTMGk60fv4+QY1qID9bzpp+mrkC8IU8wcWtl2wSYcQFV1S3Mww";
         $response = $dlexEndpoint->Process();
-        file_put_contents(GettingStartedInFive::$BasePath . "getting-started-output.pdf", $response->Content);
+
+        if($response->IsSuccessful)
+        {
+            file_put_contents(GettingStartedInFive::$BasePath . "getting-started-output.pdf", $response->Content);
+        } else {
+            echo("Error: ");
+            echo($response->StatusCode);
+            echo($response->ErrorMessage);
+        }
     }
 }
 GettingStartedInFive::Run();
