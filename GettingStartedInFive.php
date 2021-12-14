@@ -21,7 +21,7 @@ class GettingStartedInFive
         } else {
             echo("Error: ");
             echo($response->StatusCode);
-            echo($response->ErrorMessage);
+            echo($response->ErrorJson);
         }
     }
 }
