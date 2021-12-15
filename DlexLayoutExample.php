@@ -5,7 +5,8 @@ use DynamicPDF\Api\DlexLayout;
 
 class DlexLayoutExample
 {
-    private static $BasePath = __DIR__;
+    private static string $BasePath = "C:/temp/dynamicpdf-api-samples/creating-pdf-dlex-layout-endpoint/";
+
     public static function RunExample()
     {
         $layoutData = new LayoutDataResource(DlexLayoutExample::$BasePath . "/Resources/client-libraries-examples/SimpleReportData.json");
