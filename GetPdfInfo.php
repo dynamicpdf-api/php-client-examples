@@ -13,7 +13,7 @@ class GetPdfInfo
     {
         $resource = new PdfResource(GetPdfInfo::$BasePath . "fw4.pdf");
         $pdfInfo = new PdfInfo($resource);
-        $pdfInfo->ApiKey = "DP.NKSoPxiwOgZoypSVYaXyEARo2cO9Kk5BRgY2ZRC0jF/KQq4pDzhfK8yO";
+        $pdfInfo->ApiKey = "DP.xxx--apikey--xxx";
         $response = $pdfInfo->Process();
         if ($response->IsSuccessful) {
             echo ($response->JsonContent);

@@ -13,7 +13,7 @@ class GetImageInfo
     {
         $imageResource = new ImageResource(GetImageInfo::$BasePath . "dynamicpdfLogo.png");
         $imageInfo = new ImageInfo($imageResource);
-        $imageInfo->ApiKey = "DP.NKSoPxiwOgZoypSVYaXyEARo2cO9Kk5BRgY2ZRC0jF/KQq4pDzhfK8yO";
+        $imageInfo->ApiKey = "DP.xxx--apikey--xxx";
         $response = $imageInfo->Process();
 
         if($response->IsSuccessful)

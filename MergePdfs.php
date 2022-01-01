@@ -13,7 +13,7 @@ class MergePdfs
     public static function Run()
     {
         $pdf = new Pdf();
-        $pdf->ApiKey = "DP.P6WqEDZ0vFA3I1wKj8VQj8HWDSEaH6vEMhRNg9QPbOSSQ5sGgN07u7fB";
+        $pdf->ApiKey = "DP.xxx--apikey--xxx";
 
         $pdfInput = $pdf->AddPdf(new PdfResource(MergePdfs::$BasePath . "DocumentA.pdf"));
         $pdfInput->StartPage = 1;

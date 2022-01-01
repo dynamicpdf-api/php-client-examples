@@ -16,13 +16,14 @@ use DynamicPDF\Api\RgbColor;
 use DynamicPDF\Api\Font;
 use DynamicPDF\Api\Elements\AztecBarcodeElement;
 use DynamicPDF\Api\FormField;
+use DynamicPDF\Api\PdfText;
 
 require __DIR__ . '/vendor/autoload.php';
 
 class InstructionsExample
 {
 	private static string $BasePath = "C:/temp/dynamicpdf-api-usersguide-examples/";
-	private static string $ApiKey = "DP.TrJj2UBRFfrxiLYYD9xQryHXnFoSRKVPTBYH0LRpVWWnTZPOmgRO6yX6";
+	private static string $ApiKey = "DP.xxx--apikey--xxx";
 
 
 	public static function Run()
@@ -242,48 +243,5 @@ class InstructionsExample
 		return $pdf;
 	}
 
-
-
-	public static function MergingExample()
-	{
-		$cloudResource = "samples/shared/pdf/documentA.pdf";
-		$fileResource = InstructionsExample::$BasePath . "/Resources/instructions-examples/documentB.pdf";
-
-		// add pdf from cloud resources
-
-		$pdf = new Pdf();
-		$pdf->AddPdf($cloudResource);
-
-		// add pdf from local file path
-
-		$pdfResource = new PdfResource($fileResource);
-		$pdf->AddPdf($pdfResource);
-
-		// add blank page to pdf
-
-		$pageInput = $pdf->AddPage(1008, 612);
-
-		// add image to pdf from cloud api
-
-		$pdf->AddImage("samples/shared/image/Image3.png");
-
-		// add image to pdf from local file system
-
-		$imageResource = new ImageResource(InstructionsExample::$BasePath . "/Resources/instructions-examples/Image1.jpg");
-		$pdf->AddImage($imageResource);
-
-		// add dlex to pdf from cloud
-
-		$layoutData = new LayoutDataResource(InstructionsExample::$BasePath . "/Resources/instructions-examples/getting-started-data.json");
-		//$pdf->AddDlex("samples/getting-started/getting-started.dlex", $layoutData);
-
-		// add dlex to pdf from local
-
-		$dlexResource = new DlexResource(InstructionsExample::$BasePath . "/Resources/instructions-examples/example-two.dlex");
-		$layoutData = new LayoutDataResource(InstructionsExample::$BasePath . "/Resources/instructions-examples/example-two.json");
-		$pdf->AddDlex($dlexResource, $layoutData);
-
-		return $pdf;
-	}
 }
 InstructionsExample::Run();

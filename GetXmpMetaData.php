@@ -13,7 +13,7 @@ class GetXmpMetaData {
     {
         $resource = new PdfResource(GetXmpMetaData::$BasePath . "/fw4.pdf");
         $pdfXmp = new PdfXmp($resource);
-        $pdfXmp->ApiKey = "DP.7vATWolKJ4xdaefbf/pTgSW7uGWofsZAKctZ1J/hzV9yTrzDvmDI1lwT";
+        $pdfXmp->ApiKey = "DP.xxx--apikey--xxx";
         $response = $pdfXmp->Process();
         
         if($response->IsSuccessful)

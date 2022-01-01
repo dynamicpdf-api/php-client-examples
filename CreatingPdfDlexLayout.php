@@ -16,7 +16,7 @@ class CreatingPdfDlexLayout
 
         //load dlex from cloud and layoutdata
         $dlexEndpoint = new DlexLayout("samples/creating-pdf-dlex-layout-endpoint/create-pdf-dlex-layout.dlex", $layoutData);
-        $dlexEndpoint->ApiKey = "DP.7vATWolKJ4xdaefbf/pTgSW7uGWofsZAKctZ1J/hzV9yTrzDvmDI1lwT";
+        $dlexEndpoint->ApiKey = "DP.xxx--apikey--xxx";
 
         //call dlex-layout endpoint and get response
         $response = $dlexEndpoint->Process();
