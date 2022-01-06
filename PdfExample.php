@@ -6,12 +6,18 @@ use DynamicPDF\Api\RgbColor;
 use DynamicPDF\Api\Pdf;
 use DynamicPDF\Api\Font;
 
+require __DIR__ . '/vendor/autoload.php';
+
 class PdfExample
 {
-    private static $BasePath = __DIR__;
-    public static function RunExample()
+
+    private static string $BasePath = "C:/temp/dynamicpdf-api-usersguide-examples/";
+	private static string $ApiKey = "DP.xxx--apikey--xxx";
+
+    public static function Run()
     {
         $pdf = new Pdf();
+        $pdf->ApiKey = PdfExample::$ApiKey;
         $pdf->Author = "John Doe";
         $pdf->Title = "My Blank PDF Page";
         $pageInput = $pdf->AddPage(1008, 612);
@@ -21,7 +27,7 @@ class PdfExample
         $pageNumberingElement->FontSize = 24;
         array_push($pageInput->Elements, $pageNumberingElement);
         $pdfResponse = $pdf->Process();
-        file_put_contents(PdfExample::$BasePath . "/output/pageExample.pdf", $pdfResponse->Content);
-        echo ("PDF Received: " . PdfExample::$BasePath . "/output/pageExample.pdf");
+        file_put_contents(PdfExample::$BasePath . "php-pdf-example-output.pdf", $pdfResponse->Content);
     }
 }
+PdfExample::Run();

@@ -1,21 +1,32 @@
-DynamicPdf Cloud - PHP Client Examples
+php-client-examples
 =========================================
 
-Examples illustrating the PHP client api.
+The project contains numerous sample projects for the tutorials and examples on cloud.dynamicpdf.com. Each example project is designed to run independently. All resources can be found on the cloud.dynamicpdf.com website.
 
-Entry point to the examples is `RunTest.php`. 
+- **This project contains the tutorials and examples from [cloud.dynamicpdf.com](https://cloud.dynamicpdf.com)**
 
 Running Examples
 ----------------
 
-In order to install PHP client for DynamicPdf Cloud, run this:
+In order to install PHP client for DynamicPDF Cloud API, run the following command.
 
     composer update
 
-This will install the package which is already added as a dependency in examples project.
-It will also generate the autoload needed to load the dependencies.
-Now the examples can be run as follows:
+This will install the package which is already added as a dependency in examples project. It will also generate the autoload needed to load the dependencies.
 
-    php RunTest.php "Api Key" "Base URL (optional)"
+You can then run each example individually.
 
-Providing Api Key is a must. Optionally, base URL can be provided if default URL is not desired.
+```bash
+php <fileName>.php
+```
+
+## Resources
+
+To obtain the resources for the project, login to cloud.dynamicpdf.com (assuming you have an account), and go to the **Resource Manager**. You use the `samples` folder to add the resources for the tutorials and examples from this project.
+
+- [Resource Manager Samples](https://cloud.dynamicpdf.com/docs/usersguide/environment-manager/environment-manager-sample-resources)  
+
+For more information on the tutorials and example code, refer to:
+
+- https://cloud.dynamicpdf.com/docs/tutorials/tutorials-overview
+- https://cloud.dynamicpdf.com/docs/usersguide/cloud-api/cloud-api-overview

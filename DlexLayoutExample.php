@@ -3,15 +3,20 @@
 use DynamicPDF\Api\LayoutDataResource;
 use DynamicPDF\Api\DlexLayout;
 
+require __DIR__ . '/vendor/autoload.php';
+
 class DlexLayoutExample
 {
-    private static $BasePath = __DIR__;
-    public static function RunExample()
+    private static string $BasePath = "C:/temp/dynamicpdf-api-samples/create-pdf-dlex/";
+    private static string $ApiKey = "DP.xxx--apikey--xxx";
+
+    public static function Run()
     {
-        $layoutData = new LayoutDataResource(DlexLayoutExample::$BasePath . "/Resources/client-libraries-examples/SimpleReportData.json");
-        $dlexEndpoint = new DlexLayout("samples/shared/dlex/SimpleReportWithCoverPage.dlex", $layoutData);
+        $layoutData = new LayoutDataResource(DlexLayoutExample::$BasePath . "SimpleReportWithCoverPage.json");
+        $dlexEndpoint = new DlexLayout("samples/dlex-layout/SimpleReportWithCoverPage.dlex", $layoutData);
+        $dlexEndpoint->ApiKey = DlexLayoutExample::$ApiKey;
         $response = $dlexEndpoint->Process();
-        file_put_contents(DlexLayoutExample::$BasePath . "./output/dlex-output.pdf", $response->Content);
-        echo ("PDF Received: " . DlexLayoutExample::$BasePath . "./output/dlex-output.pdf");
+        file_put_contents(DlexLayoutExample::$BasePath . "php-dlex-layout-example-output.pdf", $response->Content);
     }
 }
+DlexLayoutExample::Run();
