@@ -5,6 +5,8 @@ require __DIR__ . '/vendor/autoload.php';
 use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\PdfText;
 
+// https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/pdf-text/tutorial-pdf-text
+
 class ExtractText
 {
     private static string $BasePath = "C:/temp/dynamicpdf-api-samples/extract-text/";

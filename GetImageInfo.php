@@ -5,6 +5,8 @@ require __DIR__ . '/vendor/autoload.php';
 use DynamicPDF\Api\ImageResource;
 use DynamicPDF\Api\ImageInfo;
 
+// https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/image-info/tutorial-image-info
+
 class GetImageInfo
 {
     private static string $BasePath = "C:/temp/dynamicpdf-api-samples/get-image-info/";

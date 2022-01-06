@@ -8,6 +8,8 @@ use DynamicPDF\Api\PdfInput;
 use DynamicPDF\Api\RgbColor;
 use DynamicPDF\Api\UrlAction;
 
+// https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/pdf-tutorial-bookmarks
+
 class AddBookmarks
 {
     private static string $BasePath = "C:/temp/dynamicpdf-api-samples/add-bookmarks/";

@@ -6,6 +6,8 @@ use DynamicPDF\Api\Pdf;
 use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\PdfInput;
 
+// https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/pdf-tutorial-merging-pdfs
+
 class MergePdfs
 {
     private static string $BasePath = "C:/temp/dynamicpdf-api-samples/";

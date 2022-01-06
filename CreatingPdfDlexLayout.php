@@ -5,6 +5,8 @@ require __DIR__ . '/vendor/autoload.php';
 use DynamicPDF\Api\LayoutDataResource;
 use DynamicPDF\Api\DlexLayout;
 
+// https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/dlex-layout/tutorial-dlex-layout
+
 class CreatingPdfDlexLayout
 {
     private static string $BasePath = "C:/temp/dynamicpdf-api-samples/creating-pdf-dlex-layout-endpoint/";
