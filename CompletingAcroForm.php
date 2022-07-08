@@ -17,7 +17,7 @@ class CompletingAcroForm
     {
         //create a new PDF instance and api key
         $pdf = new Pdf();
-        $pdf->ApiKey = "DP.JtmSyCt8jfAi5IfSa5+Egl7HDj7TBdUsNPy2pu9JqiWWS4AJ+g5/HkMF";
+        $pdf->ApiKey = "DP.API-KEY";
 
         //load the PDF from the cloud
         $pdf->AddPdf("samples/fill-acro-form-pdf-endpoint/fw9AcroForm_18.pdf");

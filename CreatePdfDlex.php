@@ -15,12 +15,9 @@ class CreatePdfDlex {
     public static function Run() {
 
         $pdf = new Pdf();
-        $pdf->ApiKey ="DP.xxx--apikey--xxx";
+        $pdf->ApiKey ="DP.API-KEY";
         $layoutData = new LayoutDataResource(CreatePdfDlex::$BasePath . "SimpleReportWithCoverPage.json");
         $pdf->AddDlex("samples/creating-pdf-pdf-endpoint/SimpleReportWithCoverPage.dlex", $layoutData);
-
-        $pdfResource = new PdfResource(CreatePdfDlex::$BasePath . "DocumentA.pdf");
-        $pdf->AddPdf($pdfResource);
 
         //call the pdf endpoint and return response
         $response = $pdf->Process();
@@ -28,7 +25,7 @@ class CreatePdfDlex {
         //if response is successful the save the PDF returned from endpoint
         if($response->IsSuccessful)
         {
-            file_put_contents(CreatePdfDlex::$BasePath . "create-pdf-dlex-output.pdf", $response->Content);
+            file_put_contents(CreatePdfDlex::$BasePath . "create-pdf-dlex-php-output.pdf", $response->Content);
         } else { 
             echo($response->ErrorMessage);
         }
