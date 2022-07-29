@@ -16,20 +16,15 @@ The DynamicPDF Cloud API consists of the following endpoints.
 
 For more information, please visit [DynamicPDF Cloud API](https://cloud.dynamicpdf.com/ "DynamicPDF Cloud API Homepage"). Support for other languages/platforms (PHP, C#, Node.js) is available on GitHub ([DynamicPDF Cloud API at GitHub](https://github.com/dynamicpdf-api "DynamicPDF Cloud API at GitHub")).
 
-## Repository
+## Client Library (`php-client`)
 
 * The PHP client project source is available on Github ([php-client](https://github.com/dynamicpdf-api/php-client)). 
+* Follow the instructions on that project to install the php-client.
 
 Running Examples
 ----------------
 
-In order to install PHP client for DynamicPDF Cloud API, run the following command.
-
-    composer update
-
-This will install the package which is already added as a dependency in examples project. It will also generate the autoload needed to load the dependencies.
-
-You can then run each example individually.
+In order to install PHP client examples for DynamicPDF Cloud API be certain you have first installed the `php-client` library using Composer. You can then run each example individually.
 
 ```bash
 php <fileName>.php
@@ -43,10 +38,7 @@ To obtain the resources for the project, login to [cloud.dynamicpdf.com](https:/
 
 ## Tutorials
 
-For more information on the tutorials and example code, refer to:
-
-- https://cloud.dynamicpdf.com/docs/tutorials/tutorials-overview
-- https://cloud.dynamicpdf.com/docs/usersguide/cloud-api/cloud-api-overview
+The following table lists the available tutorials.
 
 | Tutorial Title                                     | Project/File/Class      | Tutorial Location                                            |
 | -------------------------------------------------- | ----------------------- | ------------------------------------------------------------ |
