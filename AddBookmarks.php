@@ -17,7 +17,7 @@ class AddBookmarks
 	public static function Run()
 	{
 		$pdf = new Pdf();
-        $pdf->ApiKey ="DP.S24WDZzwg9qgRqzVhZIO1Ff68jHbjoJKezkxnMv+U5C2RK0sHXhWG8KS";
+        $pdf->ApiKey ="DP<API-KEY>";
 
 		$resourceA = new PdfResource(AddBookmarks::$BasePath . "DocumentA.pdf");
         $resourceB = new PdfResource(AddBookmarks::$BasePath . "DocumentB.pdf");
