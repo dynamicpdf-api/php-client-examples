@@ -27,11 +27,11 @@ class PdfExample
         $pageNumberingElement->FontSize = 24;
         array_push($pageInput->Elements, $pageNumberingElement);
         $pdfResponse = $pdf->Process();
-        if($response->IsSuccessful)
+        if($pdfResponse->IsSuccessful)
         {
             file_put_contents(PdfExample::$BasePath . "php-pdf-example-output.pdf", $pdfResponse->Content);
         } else { 
-            echo($response->ErrorJson);
+            echo($pdfResponse->ErrorJson);
         }       
     }
 }
