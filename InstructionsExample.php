@@ -140,16 +140,16 @@ class InstructionsExample
 	public static function MergeExample()
 	{
 		$pdf = new Pdf();
-		$pdf->AddPdf(InstructionsExample::$BasePath . "DocumentA.pdf");
-		$pdf->AddImage(InstructionsExample::$BasePath . "dynamicpdfLogo.png");
-		$pdf->AddPdf(InstructionsExample::$BasePath . "DocumentB.pdf");
+		$pdf->AddPdf(new PdfResource(InstructionsExample::$BasePath . "DocumentA.pdf"));
+		$pdf->AddImage(new PdfResource(InstructionsExample::$BasePath . "dynamicpdfLogo.png"));
+		$pdf->AddPdf(new PdfResource(InstructionsExample::$BasePath . "DocumentB.pdf"));
 		return $pdf;
 	}
 
 	public static function FormFieldsExample()
     {
         $pdf = new Pdf();
-        $pdf->AddPdf("samples/shared/pdf/simple-form-fill.pdf");
+        $pdf->AddPdf(new PdfResource(InstructionsExample::$BasePath . "simple-form-fill.pdf"));
         $formField = new FormField("nameField", "DynamicPDF");
         $formField2 = new FormField("descriptionField", "DynamicPDF CloudAPI. RealTime PDFs, Real FAST!");
         array_push($pdf->FormFields, $formField);
