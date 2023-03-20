@@ -23,7 +23,7 @@ require __DIR__ . '/vendor/autoload.php';
 class InstructionsExample
 {
 	private static string $BasePath = "C:/temp/dynamicpdf-api-usersguide-examples/";
-	private static string $ApiKey = "DP.xxx--apikey--xxx";
+	private static string $ApiKey = "DP.xxx-api-key-xxx";
 
 
 	public static function Run()
@@ -32,7 +32,7 @@ class InstructionsExample
 		InstructionsExample::printOut($exampleOne, "php-top-level-metadata-output.pdf");
 
 		$exampleTwo = InstructionsExample::FontsExample();
-		InstructionsExample::printOut($exampleTwo, "php-php-font-output.pdf");
+		InstructionsExample::printOut($exampleTwo, "php-font-output.pdf");
 	
 		$exampleThree = InstructionsExample::SecurityExample();
 		InstructionsExample::printOut($exampleThree, "php-security-output.pdf");

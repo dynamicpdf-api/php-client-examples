@@ -14,11 +14,11 @@ class CreatingPdfDlexLayout
     public static function Run()
     {
         //get layoutdata from local filesystem
-        $layoutData = new LayoutDataResource(CreatingPdfDlexLayout::$BasePath . "create-pdf-dlex-layout.json");
+        $layoutData = new LayoutDataResource(CreatingPdfDlexLayout::$BasePath . "creating-pdf-dlex-layout.json");
 
         //load dlex from cloud and layoutdata
-        $dlexEndpoint = new DlexLayout("samples/creating-pdf-dlex-layout-endpoint/create-pdf-dlex-layout.dlex", $layoutData);
-        $dlexEndpoint->ApiKey = "DP.xxx--apikey--xxx";
+        $dlexEndpoint = new DlexLayout("samples/creating-pdf-dlex-layout-endpoint/creating-pdf-dlex-layout.dlex", $layoutData);
+        $dlexEndpoint->ApiKey = "DP.xxx-api-key-xxx";
 
         //call dlex-layout endpoint and get response
         $response = $dlexEndpoint->Process();
@@ -26,9 +26,9 @@ class CreatingPdfDlexLayout
         //if successul write to file
         if($response->IsSuccessful)
         {
-            file_put_contents(CreatingPdfDlexLayout::$BasePath . "create-pdf-dlex-layout-output.pdf", $response->Content);
+            file_put_contents(CreatingPdfDlexLayout::$BasePath . "create-pdf-dlex-layout-php-output.pdf", $response->Content);
         } else {
-            echo($response->ErrorMessage);
+            echo($response->ErrorJson);
         }
     }
 }

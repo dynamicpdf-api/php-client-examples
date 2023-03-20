@@ -8,7 +8,7 @@ use DynamicPDF\Api\PdfInfo;
 class PdfInfoExample
 {
     private static string $BasePath = "C:/temp/dynamicpdf-api-usersguide-examples/";
-	private static string $ApiKey = "DP.xxx--apikey--xxx";
+	private static string $ApiKey = "DP.xxx-api-key-xxx";
     
     public static function Run()
     {
