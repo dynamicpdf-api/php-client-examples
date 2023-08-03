@@ -1,41 +1,39 @@
 <?php
 
-use DynamicPDF\Api\HtmlResource;
+use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\Pdf;
+use DynamicPDF\Api\LayoutDataResource;
+use DynamicPDF\Api\HtmlResource;
 
 require __DIR__ . '/vendor/autoload.php';
 
-class PdfHtmlExample
-{
+// https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/pdf-tutorial-dlex-pdf-endpoint
 
-    private static string $BasePath = "C:/temp/html-to-pdf/";
-    private static string $resource = "c:/temp/html-to-pdf/products.html";
-	private static string $ApiKey = "DP.xxx--apikey--xxx";
+class PdfHtmlExample {
 
-    public static function Run()
-    {
+    private static string $BasePath = "C:/temp/dynamicpdf-api-samples/html-pdf/";
+
+    public static function Run() {
+
         $pdf = new Pdf();
-        $pdf->ApiKey = PdfHtmlExample::$ApiKey;
+        $pdf->ApiKey ="DP.xxx-api-key-xxx";
+        $pdf->AddHtml("<html><p>This is a test.</p></html>");
 
+        $resource = new HtmlResource(PdfHtmlExample::$BasePath . "HtmlWithAllTags.html");
+        $pdf->AddHtml($resource);
 
-       $pdf->AddHtml("<html>An example HTML fragment.</html>");
+        $pdf->AddHtml("<html><img src='./images/logo.png'></img></html>", "https://www.dynamicpdf.com");
 
-       $pdf->AddHtml("<html><p>HTML with basePath.</p><img src='./images/logo.png'>", "https://www.dynamicpdf.com");
-
-       $htmlResource = new HtmlResource(PdfHtmlExample::$resource);
-
-        $pdf->AddHtml($htmlResource);
-
-
-
-        $pdfResponse = $pdf->Process();
+        //call the pdf endpoint and return response
+        $response = $pdf->Process();
         
-        if($pdfResponse->IsSuccessful == false)
+        //if response is successful the save the PDF returned from endpoint
+        if($response->IsSuccessful)
         {
-            echo($pdfResponse->ErrorMessage);
+            file_put_contents(PdfHtmlExample::$BasePath . "html-php-output.pdf", $response->Content);
+        } else { 
+            echo($response->ErrorJson);
         }
-
-        file_put_contents(PdfHtmlExample::$BasePath . "php-pdf-example-output.pdf", $pdfResponse->Content);
     }
 }
 PdfHtmlExample::Run();

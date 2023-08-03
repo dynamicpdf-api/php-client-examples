@@ -12,7 +12,7 @@ class PdfExample
 {
 
     private static string $BasePath = "C:/temp/dynamicpdf-api-usersguide-examples/";
-	private static string $ApiKey = "DP.xxx--apikey--xxx";
+	private static string $ApiKey = "DP.xxx-api-key-xxx";
 
     public static function Run()
     {
@@ -27,7 +27,12 @@ class PdfExample
         $pageNumberingElement->FontSize = 24;
         array_push($pageInput->Elements, $pageNumberingElement);
         $pdfResponse = $pdf->Process();
-        file_put_contents(PdfExample::$BasePath . "php-pdf-example-output.pdf", $pdfResponse->Content);
+        if($pdfResponse->IsSuccessful)
+        {
+            file_put_contents(PdfExample::$BasePath . "php-pdf-example-output.pdf", $pdfResponse->Content);
+        } else { 
+            echo($pdfResponse->ErrorJson);
+        }       
     }
 }
 PdfExample::Run();

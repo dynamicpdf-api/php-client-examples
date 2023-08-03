@@ -15,7 +15,7 @@ class ExtractText
     {
         $resource = new PdfResource(ExtractText::$BasePath . "fw4.pdf");
         $pdfText = new PdfText($resource);
-        $pdfText->ApiKey ="DP.xxx--apikey--xxx";
+        $pdfText->ApiKey ="DP.xxx-api-key-xxx";
 
         $response = $pdfText->Process();
        

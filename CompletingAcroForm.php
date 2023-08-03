@@ -17,7 +17,7 @@ class CompletingAcroForm
     {
         //create a new PDF instance and api key
         $pdf = new Pdf();
-        $pdf->ApiKey = "DP.API-KEY";
+        $pdf->ApiKey = "DP.xxx-api-key-xxx";
 
         //load the PDF from the cloud
         $pdf->AddPdf("samples/fill-acro-form-pdf-endpoint/fw9AcroForm_18.pdf");
@@ -48,10 +48,11 @@ class CompletingAcroForm
         //if response is successful the save the PDF returned from endpoint
         if($response->IsSuccessful)
         {
-            file_put_contents(GlobalCompletingAcroForm::$BasePath . "fill-acro-form-output.pdf", $response->Content);
+            file_put_contents(GlobalCompletingAcroForm::$BasePath . "fill-acro-form-php-output.pdf", $response->Content);
         } else {
             echo("Error: ");
             echo($response->StatusCode);
+            echo($response->ErrorId);
             echo($response->ErrorMessage);
         }
 

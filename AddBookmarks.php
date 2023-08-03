@@ -17,7 +17,7 @@ class AddBookmarks
 	public static function Run()
 	{
 		$pdf = new Pdf();
-        $pdf->ApiKey ="DP.S24WDZzwg9qgRqzVhZIO1Ff68jHbjoJKezkxnMv+U5C2RK0sHXhWG8KS";
+        $pdf->ApiKey ="DP.xxx-api-key-xxx";
 
 		$resourceA = new PdfResource(AddBookmarks::$BasePath . "DocumentA.pdf");
         $resourceB = new PdfResource(AddBookmarks::$BasePath . "DocumentB.pdf");
@@ -65,9 +65,8 @@ class AddBookmarks
         {
             file_put_contents(AddBookmarks::$BasePath . "add-bookmarks-php-output.pdf", $response->Content);
         } else {
-            echo($response->ErrorMessage);
+            echo($response->ErrorJson);
         }
-
     }
 }
 AddBookmarks::Run();

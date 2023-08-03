@@ -22,17 +22,17 @@ require __DIR__ . '/vendor/autoload.php';
 
 class InstructionsExample
 {
-	private static string $BasePath = "C:/temp/dynamicpdf-api-samples/out/";
-	private static string $ApiKey = "DP.xxx--apikey--xxx";
+	private static string $BasePath = "C:/temp/dynamicpdf-api-usersguide-examples/";
+	private static string $ApiKey = "DP.xxx-api-key-xxx";
 
 
 	public static function Run()
 	{
-	 /* $exampleOne = InstructionsExample::TopLevelMetaData();
+		$exampleOne = InstructionsExample::TopLevelMetaData();
 		InstructionsExample::printOut($exampleOne, "php-top-level-metadata-output.pdf");
 
 		$exampleTwo = InstructionsExample::FontsExample();
-		InstructionsExample::printOut($exampleTwo, "php-php-font-output.pdf");
+		InstructionsExample::printOut($exampleTwo, "php-font-output.pdf");
 	
 		$exampleThree = InstructionsExample::SecurityExample();
 		InstructionsExample::printOut($exampleThree, "php-security-output.pdf");
@@ -55,16 +55,7 @@ class InstructionsExample
 
 		$exampleNine = InstructionsExample::AddOutlinesExistingPdf();
 		InstructionsExample::printOut($exampleNine, "php-existing-outline-output.pdf"); 
-
-	
-
-		$exampleTen = InstructionsExample::DlexResourceExample();
-		InstructionsExample::printOut($exampleTen, "php-dlex-resource-output.pdf"); 
-	
-			*/
-		$exampleEleven = InstructionsExample::DlexResourceStreamExample();
-		InstructionsExample::printOut($exampleEleven, "php-dlex-resource-stream-output.pdf"); 
-
+		
 	}
 
 	public static function printOut(Pdf $pdf, String $outputFile)
@@ -99,29 +90,6 @@ class InstructionsExample
 
 		return $pdf;
 	}
-
-	public static function DlexResourceStreamExample() 
-	{
-
-        $pdf = new Pdf();
-        $dlex = new DlexResource("c:/temp/dlex-resource/SimpleReportWithCoverPage.dlex");
-        $layout = new LayoutDataResource("c:/temp/dlex-resource/SimpleReportWithCoverPage.json");
-        $pdf->addDlex($dlex, $layout);
-		return $pdf;
-
-    }
-
-	public static function DlexResourceExample() 
-	{
-
-        $pdf = new Pdf();
-		$content = file_get_contents($_FILES['c:/temp/dlex-resource/SimpleReportWithCoverPage.dlex']['tmp_name']);
-        $dlex = new DlexResource($content);
-        $layout = new LayoutDataResource("c:/temp/dlex-resource/SimpleReportWithCoverPage.json");
-        $pdf->addDlex($dlex, $layout);
-		return $pdf;
-
-    }
 
 	public static function FontsExample()
 	{
@@ -172,16 +140,16 @@ class InstructionsExample
 	public static function MergeExample()
 	{
 		$pdf = new Pdf();
-		$pdf->AddPdf(InstructionsExample::$BasePath . "DocumentA.pdf");
-		$pdf->AddImage(InstructionsExample::$BasePath . "dynamicpdfLogo.png");
-		$pdf->AddPdf(InstructionsExample::$BasePath . "DocumentB.pdf");
+		$pdf->AddPdf(new PdfResource(InstructionsExample::$BasePath . "DocumentA.pdf"));
+		$pdf->AddImage(new PdfResource(InstructionsExample::$BasePath . "dynamicpdfLogo.png"));
+		$pdf->AddPdf(new PdfResource(InstructionsExample::$BasePath . "DocumentB.pdf"));
 		return $pdf;
 	}
 
 	public static function FormFieldsExample()
     {
         $pdf = new Pdf();
-        $pdf->AddPdf("samples/shared/pdf/simple-form-fill.pdf");
+        $pdf->AddPdf(new PdfResource(InstructionsExample::$BasePath . "simple-form-fill.pdf"));
         $formField = new FormField("nameField", "DynamicPDF");
         $formField2 = new FormField("descriptionField", "DynamicPDF CloudAPI. RealTime PDFs, Real FAST!");
         array_push($pdf->FormFields, $formField);

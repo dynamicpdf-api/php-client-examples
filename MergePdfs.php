@@ -15,7 +15,7 @@ class MergePdfs
     public static function Run()
     {
         $pdf = new Pdf();
-        $pdf->ApiKey = "DP.xxx--apikey--xxx";
+        $pdf->ApiKey = "DP.xxx-api-key-xxx";
 
         $pdfInput = $pdf->AddPdf(new PdfResource(MergePdfs::$BasePath . "DocumentA.pdf"));
         $pdfInput->StartPage = 1;
@@ -28,11 +28,11 @@ class MergePdfs
 
         if($response->IsSuccessful)
         {
-            file_put_contents(MergePdfs::$BasePath . "merge-pdfs-output.pdf", $response->Content);
+            file_put_contents(MergePdfs::$BasePath . "merge-pdfs-php-output.pdf", $response->Content);
         } else {
             echo("Error: ");
             echo($response->StatusCode);
-            echo($response->ErrorMessage);
+            echo($response->ErrorJson);
         }
     }
 }
