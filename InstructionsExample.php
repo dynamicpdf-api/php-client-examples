@@ -22,13 +22,13 @@ require __DIR__ . '/vendor/autoload.php';
 
 class InstructionsExample
 {
-	private static string $BasePath = "C:/temp/dynamicpdf-api-usersguide-examples/";
+	private static string $BasePath = "C:/temp/dynamicpdf-api-samples/out/";
 	private static string $ApiKey = "DP.xxx--apikey--xxx";
 
 
 	public static function Run()
 	{
-		$exampleOne = InstructionsExample::TopLevelMetaData();
+	 /* $exampleOne = InstructionsExample::TopLevelMetaData();
 		InstructionsExample::printOut($exampleOne, "php-top-level-metadata-output.pdf");
 
 		$exampleTwo = InstructionsExample::FontsExample();
@@ -55,7 +55,16 @@ class InstructionsExample
 
 		$exampleNine = InstructionsExample::AddOutlinesExistingPdf();
 		InstructionsExample::printOut($exampleNine, "php-existing-outline-output.pdf"); 
-		
+
+	
+
+		$exampleTen = InstructionsExample::DlexResourceExample();
+		InstructionsExample::printOut($exampleTen, "php-dlex-resource-output.pdf"); 
+	
+			*/
+		$exampleEleven = InstructionsExample::DlexResourceStreamExample();
+		InstructionsExample::printOut($exampleEleven, "php-dlex-resource-stream-output.pdf"); 
+
 	}
 
 	public static function printOut(Pdf $pdf, String $outputFile)
@@ -90,6 +99,29 @@ class InstructionsExample
 
 		return $pdf;
 	}
+
+	public static function DlexResourceStreamExample() 
+	{
+
+        $pdf = new Pdf();
+        $dlex = new DlexResource("c:/temp/dlex-resource/SimpleReportWithCoverPage.dlex");
+        $layout = new LayoutDataResource("c:/temp/dlex-resource/SimpleReportWithCoverPage.json");
+        $pdf->addDlex($dlex, $layout);
+		return $pdf;
+
+    }
+
+	public static function DlexResourceExample() 
+	{
+
+        $pdf = new Pdf();
+		$content = file_get_contents($_FILES['c:/temp/dlex-resource/SimpleReportWithCoverPage.dlex']['tmp_name']);
+        $dlex = new DlexResource($content);
+        $layout = new LayoutDataResource("c:/temp/dlex-resource/SimpleReportWithCoverPage.json");
+        $pdf->addDlex($dlex, $layout);
+		return $pdf;
+
+    }
 
 	public static function FontsExample()
 	{
