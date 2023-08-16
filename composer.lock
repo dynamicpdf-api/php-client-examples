@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "dynamicpdf/api",
-            "version": "v1.1.1",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dynamicpdf-api/php-client.git",
-                "reference": "8679938e7eeb8c7986c3709b8f03581e091b9036"
+                "reference": "d8db8753b2074e536134533e7b260bc9a74a4cf3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dynamicpdf-api/php-client/zipball/8679938e7eeb8c7986c3709b8f03581e091b9036",
-                "reference": "8679938e7eeb8c7986c3709b8f03581e091b9036",
+                "url": "https://api.github.com/repos/dynamicpdf-api/php-client/zipball/d8db8753b2074e536134533e7b260bc9a74a4cf3",
+                "reference": "d8db8753b2074e536134533e7b260bc9a74a4cf3",
                 "shasum": ""
             },
             "require": {
@@ -57,9 +57,9 @@
             ],
             "support": {
                 "issues": "https://github.com/dynamicpdf-api/php-client/issues",
-                "source": "https://github.com/dynamicpdf-api/php-client/tree/v1.1.1"
+                "source": "https://github.com/dynamicpdf-api/php-client/tree/v1.2.0"
             },
-            "time": "2023-03-20T14:02:10+00:00"
+            "time": "2023-08-08T10:16:17+00:00"
         }
     ],
     "packages-dev": [],

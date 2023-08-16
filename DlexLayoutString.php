@@ -5,23 +5,24 @@ use DynamicPDF\Api\DlexLayout;
 
 require __DIR__ . '/vendor/autoload.php';
 
-class DlexLayoutExample
+class DlexLayoutString
 {
     private static string $BasePath = "C:/temp/dlex-layout-example/";
     private static string $ApiKey = "DP---API-KEY---";
 
     public static function Run()
     {
-        $layoutData = new LayoutDataResource(DlexLayoutExample::$BasePath . "SimpleReportWithCoverPage.json");
+        $file_content = file(DlexLayoutString::$BasePath . "SimpleReportWithCoverPage.json");
+        $layoutData = new LayoutDataResource($file_content);
         $dlexEndpoint = new DlexLayout("samples/dlex-layout/SimpleReportWithCoverPage.dlex", $layoutData);
-        $dlexEndpoint->ApiKey = DlexLayoutExample::$ApiKey;
+        $dlexEndpoint->ApiKey = DlexLayoutString::$ApiKey;
         $response = $dlexEndpoint->Process();
         if($response->IsSuccessful)
         {
-            file_put_contents(DlexLayoutExample::$BasePath . "php-dlex-layout-example-output.pdf", $response->Content);
+            file_put_contents(DlexLayoutString::$BasePath . "php-dlex-layout-string-example-output.pdf", $response->Content);
         } else { 
             echo($response->ErrorJson);
         }  
     }
 }
-DlexLayoutExample::Run();
+DlexLayoutString::Run();
