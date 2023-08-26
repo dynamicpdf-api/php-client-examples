@@ -24,7 +24,13 @@ For more information, please visit [DynamicPDF Cloud API](https://cloud.dynamicp
 Running Examples
 ----------------
 
-In order to install PHP client examples for DynamicPDF Cloud API be certain you have first installed the `php-client` library using Composer. You can then run each example individually.
+In order to install PHP client examples for DynamicPDF Cloud API be certain you have first installed the `php-client` library using Composer. After downloading this library run the update commmand.
+
+```bash
+composer update
+```
+
+You can then run each example individually.
 
 ```bash
 php <fileName>.php
