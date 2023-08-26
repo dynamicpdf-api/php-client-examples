@@ -29,6 +29,11 @@ In order to install PHP client examples for DynamicPDF Cloud API be certain you 
 ```bash
 composer update
 ```
+Use the code below to autoload.
+
+```bash
+require_once('vendor/autoload.php');
+```
 
 You can then run each example individually.
 
