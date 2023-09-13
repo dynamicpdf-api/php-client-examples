@@ -6,26 +6,22 @@ use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\PdfInput;
 use DynamicPDF\Api\Template;
 use DynamicPDF\Api\Elements\TextElement;
-use DynamicPDF\Api\ImageResource;
-use DynamicPDF\Api\LayoutDataResource;
-use DynamicPDF\Api\DlexResource;
-
 use DynamicPDF\Api\Elements\ElementPlacement;
 use DynamicPDF\Api\Elements\PageNumberingElement;
 use DynamicPDF\Api\RgbColor;
 use DynamicPDF\Api\Font;
 use DynamicPDF\Api\Elements\AztecBarcodeElement;
 use DynamicPDF\Api\FormField;
-use DynamicPDF\Api\PdfText;
+use DynamicPDF\Api\HtmlResource;
 
 require __DIR__ . '/vendor/autoload.php';
 
 class InstructionsExample
 {
-	private static string $BasePath = "C:/temp/dynamicpdf-api-usersguide-examples/";
-	private static string $ApiKey = "DP.xxx-api-key-xxx";
+	private static string $BasePath = "C:/temp/users-guide-resources/";
+	private static string $ApiKey = "DP---API-KEY---";
 
-
+	
 	public static function Run()
 	{
 		$exampleOne = InstructionsExample::TopLevelMetaData();
@@ -56,22 +52,37 @@ class InstructionsExample
 		$exampleNine = InstructionsExample::AddOutlinesExistingPdf();
 		InstructionsExample::printOut($exampleNine, "php-existing-outline-output.pdf"); 
 		
+		$exampleTen = InstructionsExample::HtmlToPdf();
+		InstructionsExample::printOut($exampleTen, "html-to-pdf-output.pdf"); 
 	}
 
 	public static function printOut(Pdf $pdf, String $outputFile)
 	{
 		$pdf->ApiKey = InstructionsExample::$ApiKey;
 		$response = $pdf->Process();
-
+		$OutPath = "C:/temp/dynamicpdf-api-usersguide-examples/php-output/";
+		
 		if ($response->ErrorJson != null) {
 			echo ("\n" . $response->ErrorJson);
 		} else {
 			echo ("\n" . $pdf->GetInstructionsJson());
 			echo ("\n" . "==================================================================");
-			file_put_contents(InstructionsExample::$BasePath .  $outputFile, $response->Content);
+			file_put_contents($OutPath .  $outputFile, $response->Content);
 		}
 	}
 
+	public static function HtmlToPdf() {
+
+		$pdf = new Pdf();
+        $pdf->AddHtml("<html><p>This is a test.</p></html>");
+
+        $resource = new HtmlResource(InstructionsExample::$BasePath . "HtmlWithAllTags.html");
+        $pdf->AddHtml($resource);
+
+        $pdf->AddHtml("<html><img src='./images/logo.png'></img></html>", "https://www.dynamicpdf.com");
+
+		return $pdf;
+	}
 
 	public static function TopLevelMetaData()
 	{
@@ -102,7 +113,7 @@ class InstructionsExample
 		$pageNumberingElement->Font = Font::Helvetica();
 		$pageNumberingElement->FontSize = 42;
 
-		$cloudResourceName = "old_samples/shared/font/Calibri.otf";
+		$cloudResourceName = "samples/users-guide-resources/Calibri.otf";
 
 		$pageNumberingElementTwo = new PageNumberingElement("B", ElementPlacement::TopLeft);
 		$pageNumberingElementTwo->Color = RgbColor::DarkOrange();
@@ -141,7 +152,7 @@ class InstructionsExample
 	{
 		$pdf = new Pdf();
 		$pdf->AddPdf(new PdfResource(InstructionsExample::$BasePath . "DocumentA.pdf"));
-		$pdf->AddImage(new PdfResource(InstructionsExample::$BasePath . "dynamicpdfLogo.png"));
+		$pdf->AddImage(new PdfResource(InstructionsExample::$BasePath . "DPDFLogo.png"));
 		$pdf->AddPdf(new PdfResource(InstructionsExample::$BasePath . "DocumentB.pdf"));
 		return $pdf;
 	}

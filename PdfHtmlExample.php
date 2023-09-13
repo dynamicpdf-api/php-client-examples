@@ -2,7 +2,6 @@
 
 use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\Pdf;
-use DynamicPDF\Api\LayoutDataResource;
 use DynamicPDF\Api\HtmlResource;
 
 require __DIR__ . '/vendor/autoload.php';
