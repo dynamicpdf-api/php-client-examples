@@ -10,7 +10,7 @@ class PdfHtmlCssWorkAroundExample {
  
     private static string $OutPath = "C:/temp/dynamicpdf-api-usersguide-examples/php-output/";
 
-    private static string $ApiKey = "DP.s2eSlDpAF80sPSdNDRi5wBfeVJQVeI1Q0CqqGubveJP/TLBiNNDWZpmH";
+    private static string $ApiKey = "DP---API-KEY---";
 
     public static function Run(){
         $pdf = new Pdf();
