@@ -6,7 +6,7 @@ class HtmlToPdf {
 
     private static string $BasePath = "C:/temp/html-to-pdf";
     private static string $resource = "C:/temp/html-to-pdf/products.html";
-    private static string $ApiKey = "DP.xxx--apikey--xxx";
+    private static string $ApiKey = "DP.xxx-api-key-xxx";
 
     public static function Run(){
         $pdf = new Pdf();

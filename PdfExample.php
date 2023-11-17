@@ -12,7 +12,7 @@ class PdfExample
 {
 
     private static string $BasePath = "C:/temp/dynamicpdf-api-usersguide-examples/";
-	private static string $ApiKey = "DP.mxDiZMS5o09HbCyrl3YC7qvAvFw/5cL+wC3wEJmznZCaT79G+TzZ9nup";
+	private static string $ApiKey = "DP.xxx-api-key-xxx";
 
     public static function Run()
     {

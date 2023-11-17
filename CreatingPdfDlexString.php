@@ -18,7 +18,7 @@ class CreatingPdfDlexString
         $layoutData = new LayoutDataResource($file_content);
         
         $pdf = new Pdf();
-        $pdf->ApiKey ="DP---API-KEY---";
+        $pdf->ApiKey ="DP.xxx-api-key-xxx";
          $pdf->AddDlex("samples/dlex-layout/SimpleReportWithCoverPage.dlex", $layoutData);
 
         //call the pdf endpoint and return response

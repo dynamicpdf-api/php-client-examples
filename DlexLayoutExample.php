@@ -8,7 +8,7 @@ require __DIR__ . '/vendor/autoload.php';
 class DlexLayoutExample
 {
     private static string $BasePath = "C:/temp/dlex-layout-example/";
-    private static string $ApiKey = "DP---API-KEY---";
+    private static string $ApiKey = "DP.xxx-api-key-xxx";
 
     public static function Run()
     {
