@@ -2,26 +2,23 @@
 
 use DynamicPDF\Api\LayoutDataResource;
 use DynamicPDF\Api\DlexLayout;
-
+include_once __DIR__ . '/DynamicPdfExamples.php';
 require __DIR__ . '/vendor/autoload.php';
 
 class DesignerReportTemplate
 {
-    private static string $BasePath = "C:/temp/dynamicpdf-api-samples/using-dlex-layout/";
-    private static string $ApiKey = "DP.xxx-api-key-xxx";
-
-    public static function Run()
+   public static function Run(string $apikey, string $path)
     {
-        $layoutData = new LayoutDataResource(DesignerReportTemplate::$BasePath . "invoice-local.json");
+        $layoutData = new LayoutDataResource($path . "invoice.json");
         $dlexEndpoint = new DlexLayout("samples/creating-a-report-template-designer/invoice.dlex", $layoutData);
-        $dlexEndpoint->ApiKey = DesignerReportTemplate::$ApiKey;
+        $dlexEndpoint->ApiKey = $apikey;
         $response = $dlexEndpoint->Process();
+
         if($response->IsSuccessful)
         {
-            file_put_contents(DesignerReportTemplate::$BasePath . "invoice-php-output.pdf", $response->Content);
+            file_put_contents($path . "invoice-php-output.pdf", $response->Content);
         } else { 
             echo($response->ErrorJson);
         }       
     }
 }
-DesignerReportTemplate::Run();

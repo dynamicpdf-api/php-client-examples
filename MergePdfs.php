@@ -1,7 +1,7 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-
+include_once __DIR__ . '/DynamicPdfExamples.php';
 use DynamicPDF\Api\Pdf;
 use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\PdfInput;
@@ -10,25 +10,23 @@ use DynamicPDF\Api\PdfInput;
 
 class MergePdfs
 {
-    private static string $BasePath = "C:/temp/dynamicpdf-api-samples/";
-
-    public static function Run()
+    public static function Run(string $apikey, string $path)
     {
         $pdf = new Pdf();
-        $pdf->ApiKey = "DP.xxx-api-key-xxx";
+        $pdf->ApiKey = $apikey;
 
-        $pdfInput = $pdf->AddPdf(new PdfResource(MergePdfs::$BasePath . "DocumentA.pdf"));
+        $pdfInput = $pdf->AddPdf(new PdfResource($path . "DocumentA.pdf"));
         $pdfInput->StartPage = 1;
         $pdfInput->PageCount = 1;
 
-        $pdf->AddPdf(new PdfResource(MergePdfs::$BasePath . "DocumentB.pdf"));
+        $pdf->AddPdf(new PdfResource($path . "DocumentB.pdf"));
         $pdf->AddPdf("samples/merge-pdfs-pdf-endpoint/DocumentC.pdf");
 
         $response = $pdf->Process();
 
         if($response->IsSuccessful)
         {
-            file_put_contents(MergePdfs::$BasePath . "merge-pdfs-php-output.pdf", $response->Content);
+            file_put_contents($path . "merge-pdfs-php-output.pdf", $response->Content);
         } else {
             echo("Error: ");
             echo($response->StatusCode);
@@ -36,4 +34,3 @@ class MergePdfs
         }
     }
 }
-MergePdfs::Run();

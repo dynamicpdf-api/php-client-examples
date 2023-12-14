@@ -3,20 +3,18 @@
 use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\Pdf;
 use DynamicPDF\Api\LayoutDataResource;
-
+include_once __DIR__ . '/DynamicPdfExamples.php';
 require __DIR__ . '/vendor/autoload.php';
 
 // https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/pdf-tutorial-dlex-pdf-endpoint
 
 class CreatePdfDlex {
 
-    private static string $BasePath = "C:/temp/dynamicpdf-api-samples/create-pdf-dlex/";
-
-    public static function Run() {
+    public static function Run(string $apikey, string $path) {
 
         $pdf = new Pdf();
-        $pdf->ApiKey ="DP.xxx-api-key-xxx";
-        $layoutData = new LayoutDataResource(CreatePdfDlex::$BasePath . "SimpleReportWithCoverPage.json");
+        $pdf->ApiKey =$apikey;
+        $layoutData = new LayoutDataResource($path . "SimpleReportWithCoverPage.json");
         $pdf->AddDlex("samples/creating-pdf-pdf-endpoint/SimpleReportWithCoverPage.dlex", $layoutData);
 
         //call the pdf endpoint and return response
@@ -25,10 +23,10 @@ class CreatePdfDlex {
         //if response is successful the save the PDF returned from endpoint
         if($response->IsSuccessful)
         {
-            file_put_contents(CreatePdfDlex::$BasePath . "create-pdf-dlex-php-output.pdf", $response->Content);
+            file_put_contents($path . "create-pdf-dlex-php-output.pdf", $response->Content);
         } else { 
             echo($response->ErrorJson);
         }
     }
 }
-CreatePdfDlex::Run();
+#CreatePdfDlex::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/creating-pdf-pdf-endpoint/");

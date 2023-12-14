@@ -2,21 +2,17 @@
 
 use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\PdfText;
-
+include_once __DIR__ . '/DynamicPdfExamples.php';
 require __DIR__ . '/vendor/autoload.php';
 
 class PdfTextExample
 {
-	private static string $BasePath = "C:/temp/dynamicpdf-api-usersguide-examples/";
-	private static string $ApiKey = "DP.xxx-api-key-xxx";
-
-    public static function Run()
+    public static function Run(string $apikey, string $path)
     {
-        $resource = new PdfResource(PdfTextExample::$BasePath . "fw4.pdf");
+        $resource = new PdfResource($path . "fw4.pdf");
         $pdfText = new PdfText($resource);
-        $pdfText->ApiKey = PdfTextExample::$ApiKey;
+        $pdfText->ApiKey = $apikey;
         $response = $pdfText->Process();
         echo ($response->JsonContent);
     }
 }
-PdfTextExample::Run();

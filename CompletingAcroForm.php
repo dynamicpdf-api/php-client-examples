@@ -1,8 +1,7 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-
-use CompletingAcroForm as GlobalCompletingAcroForm;
+include_once __DIR__ . '/DynamicPdfExamples.php';
 use DynamicPDF\Api\Pdf;
 use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\FormField;
@@ -11,13 +10,10 @@ use DynamicPDF\Api\FormField;
 
 class CompletingAcroForm
 {
-    private static string $BasePath = "C:/temp/dynamicpdf-api-samples/fill-acro-form/";
-
-    public static function Run()
+    public static function Run(string $apikey, string $path)
     {
-        //create a new PDF instance and api key
         $pdf = new Pdf();
-        $pdf->ApiKey = "DP.xxx-api-key-xxx";
+        $pdf->ApiKey = $apikey;
 
         //load the PDF from the cloud
         $pdf->AddPdf("samples/fill-acro-form-pdf-endpoint/fw9AcroForm_18.pdf");
@@ -48,7 +44,7 @@ class CompletingAcroForm
         //if response is successful the save the PDF returned from endpoint
         if($response->IsSuccessful)
         {
-            file_put_contents(GlobalCompletingAcroForm::$BasePath . "fill-acro-form-php-output.pdf", $response->Content);
+            file_put_contents($path . "fill-acro-form-php-output.pdf", $response->Content);
         } else {
             echo("Error: ");
             echo($response->StatusCode);
@@ -58,4 +54,4 @@ class CompletingAcroForm
 
     }
 }
-CompletingAcroForm::Run();
+#CompletingAcroForm::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/fill-acro-form-pdf-endpoint/");

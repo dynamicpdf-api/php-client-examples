@@ -1,22 +1,18 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-
+include_once __DIR__ . '/DynamicPdfExamples.php';
 use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\PdfXmp;
 
 class PdfXmpExample
 {
-    private static string $BasePath = "C:/temp/dynamicpdf-api-usersguide-examples/";
-	private static string $ApiKey = "DP.xxx-api-key-xxx";
-
-    public static function Run()
+    public static function Run(string $apikey, string $path)
     {
-        $resource = new PdfResource(PdfXmpExample::$BasePath . "fw4.pdf");
+        $resource = new PdfResource($path . "fw4.pdf");
         $pdfXmp = new PdfXmp($resource);
-        $pdfXmp->ApiKey = PdfXmpExample::$ApiKey;
+        $pdfXmp->ApiKey = $apikey;
         $response = $pdfXmp->Process();
         echo ($response->Content);
     }
 }
-PdfXmpExample::Run();

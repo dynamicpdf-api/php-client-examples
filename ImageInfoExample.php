@@ -1,36 +1,32 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-
+include_once __DIR__ . '/DynamicPdfExamples.php';
 use DynamicPDF\Api\ImageResource;
 use DynamicPDF\Api\ImageInfo;
 
 class ImageInfoExample
 {
-    private static string $BasePath = "C:/temp/dynamicpdf-api-usersguide-examples/";
-    private static string $ApiKey = "DP.xxx-api-key-xxx";
-
-    public static function Run(){
-       ImageInfoExample::RunOne();
-       ImageInfoExample::RunTwo();
+    public static function Run(string $apikey, string $path){
+       ImageInfoExample::RunOne($apikey, $path);
+       ImageInfoExample::RunTwo($apikey, $path);
     }
 
-    public static function RunOne()
+    public static function RunOne(string $apikey, string $path)
     {
-        $imageResource = new ImageResource(ImageInfoExample::$BasePath . "getting-started.png");
+        $imageResource = new ImageResource($path . "getting-started.png");
         $imageInfo = new ImageInfo($imageResource);
-        $imageInfo->ApiKey = ImageInfoExample::$ApiKey;
+        $imageInfo->ApiKey = $apikey;
         $response = $imageInfo->Process();
         echo ($response->JsonContent);
     }
 
-    public static function RunTwo()
+    public static function RunTwo(string $apikey, string $path)
     {
-        $imageResource = new ImageResource(ImageInfoExample::$BasePath . "multipage.tiff");
+        $imageResource = new ImageResource($path . "multipage.tiff");
         $imageInfo = new ImageInfo($imageResource);
-        $imageInfo->ApiKey = ImageInfoExample::$ApiKey;
+        $imageInfo->ApiKey = $apikey;
         $response = $imageInfo->Process();
         echo ($response->JsonContent);
     }
 }
-ImageInfoExample::Run();

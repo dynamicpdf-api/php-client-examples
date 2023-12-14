@@ -13,70 +13,66 @@ use DynamicPDF\Api\Font;
 use DynamicPDF\Api\Elements\AztecBarcodeElement;
 use DynamicPDF\Api\FormField;
 use DynamicPDF\Api\HtmlResource;
-
+include_once __DIR__ . '/DynamicPdfExamples.php';
 require __DIR__ . '/vendor/autoload.php';
 
 class InstructionsExample
 {
-	private static string $BasePath = "C:/temp/users-guide-resources/";
-	private static string $ApiKey = "DP.xxx-api-key-xxx";
 
-	
-	public static function Run()
+	public static function Run(string $apikey, string $path, string $outputpath)
 	{
-		$exampleOne = InstructionsExample::TopLevelMetaData();
-		InstructionsExample::printOut($exampleOne, "php-top-level-metadata-output.pdf");
+		$exampleOne = InstructionsExample::TopLevelMetaData($path);
+		InstructionsExample::printOut($apikey, $exampleOne, $outputpath . "php-top-level-metadata-output.pdf");
 
-		$exampleTwo = InstructionsExample::FontsExample();
-		InstructionsExample::printOut($exampleTwo, "php-font-output.pdf");
+		$exampleTwo = InstructionsExample::FontsExample($path);
+		InstructionsExample::printOut($apikey, $exampleTwo, $outputpath . "php-font-output.pdf");
 	
-		$exampleThree = InstructionsExample::SecurityExample();
-		InstructionsExample::printOut($exampleThree, "php-security-output.pdf");
+		$exampleThree = InstructionsExample::SecurityExample($path);
+		InstructionsExample::printOut($apikey, $exampleThree, $outputpath . "php-security-output.pdf");
 
-		$exampleFour = InstructionsExample::MergeExample();
-		InstructionsExample::printOut($exampleFour, "php-merge-output.pdf");
+		$exampleFour = InstructionsExample::MergeExample($path);
+		InstructionsExample::printOut($apikey, $exampleFour, $outputpath . "php-merge-output.pdf");
 
-		$exampleFive = InstructionsExample::FormFieldsExample();
-		InstructionsExample::printOut($exampleFive, "php-form-fields-output.pdf");
+		$exampleFive = InstructionsExample::FormFieldsExample($path);
+		InstructionsExample::printOut($apikey, $exampleFive, $outputpath . "php-form-fields-output.pdf");
 
 		
-		$exampleSix = InstructionsExample::AddOutlinesForNewPdf();
-		InstructionsExample::printOut($exampleSix, "php-outline-create-output.pdf");
+		$exampleSix = InstructionsExample::AddOutlinesForNewPdf($path);
+		InstructionsExample::printOut($apikey, $exampleSix, $outputpath . "php-outline-create-output.pdf");
 
-		$exampleSeven = InstructionsExample::BarcodeExample();
-		InstructionsExample::printOut($exampleSeven, "php-barcode-output.pdf");
+		$exampleSeven = InstructionsExample::BarcodeExample($path);
+		InstructionsExample::printOut($apikey, $exampleSeven, $outputpath . "php-barcode-output.pdf");
 
-		$exampleEight = InstructionsExample::TemplateExample();
-		InstructionsExample::printOut($exampleEight, "php-template-output.pdf"); 
+		$exampleEight = InstructionsExample::TemplateExample($path);
+		InstructionsExample::printOut($apikey, $exampleEight, $outputpath . "php-template-output.pdf"); 
 
-		$exampleNine = InstructionsExample::AddOutlinesExistingPdf();
-		InstructionsExample::printOut($exampleNine, "php-existing-outline-output.pdf"); 
+		$exampleNine = InstructionsExample::AddOutlinesExistingPdf($path);
+		InstructionsExample::printOut($apikey, $exampleNine, $outputpath . "php-existing-outline-output.pdf"); 
 		
-		$exampleTen = InstructionsExample::HtmlToPdf();
-		InstructionsExample::printOut($exampleTen, "html-to-pdf-output.pdf"); 
+		$exampleTen = InstructionsExample::HtmlToPdf($path);
+		InstructionsExample::printOut($apikey, $exampleTen, $outputpath . "html-to-pdf-output.pdf"); 
 	}
 
-	public static function printOut(Pdf $pdf, String $outputFile)
+	public static function printOut(string $apikey, Pdf $pdf, String $outputFile)
 	{
-		$pdf->ApiKey = InstructionsExample::$ApiKey;
+		$pdf->ApiKey = $apikey;
 		$response = $pdf->Process();
-		$OutPath = "C:/temp/dynamicpdf-api-usersguide-examples/php-output/";
 		
 		if ($response->ErrorJson != null) {
 			echo ("\n" . $response->ErrorJson);
 		} else {
 			echo ("\n" . $pdf->GetInstructionsJson());
 			echo ("\n" . "==================================================================");
-			file_put_contents($OutPath .  $outputFile, $response->Content);
+			file_put_contents($outputFile, $response->Content);
 		}
 	}
 
-	public static function HtmlToPdf() {
+	public static function HtmlToPdf(string $basePath) {
 
 		$pdf = new Pdf();
         $pdf->AddHtml("<html><p>This is a test.</p></html>");
 
-        $resource = new HtmlResource(InstructionsExample::$BasePath . "HtmlWithAllTags.html");
+        $resource = new HtmlResource($basePath . "HtmlWithAllTags.html");
         $pdf->AddHtml($resource);
 
         $pdf->AddHtml("<html><img src='./images/logo.png'></img></html>", "https://www.dynamicpdf.com");
@@ -84,7 +80,7 @@ class InstructionsExample
 		return $pdf;
 	}
 
-	public static function TopLevelMetaData()
+	public static function TopLevelMetaData(string $basePath)
 	{
 		// create a blank page
 
@@ -102,7 +98,7 @@ class InstructionsExample
 		return $pdf;
 	}
 
-	public static function FontsExample()
+	public static function FontsExample(string $basePath)
 	{
 		// create a blank page
 
@@ -120,7 +116,7 @@ class InstructionsExample
 		$pageNumberingElementTwo->Font = new Font($cloudResourceName);
 		$pageNumberingElementTwo->FontSize = 32;
 
-		$filePathFont = InstructionsExample::$BasePath . "cnr.otf";
+		$filePathFont = $basePath . "cnr.otf";
 		$pageNumberingElementThree = new PageNumberingElement("C", ElementPlacement::TopCenter);
 		$pageNumberingElementThree->Color = RgbColor::Green();
 		$pageNumberingElementThree->Font = Font::FromFile($filePathFont);
@@ -133,9 +129,9 @@ class InstructionsExample
 		return $pdf;
 	}
 
-	public static function SecurityExample()
+	public static function SecurityExample(string $basePath)
 	{
-		$fileResource = InstructionsExample::$BasePath . "DocumentB.pdf";
+		$fileResource = $basePath . "DocumentB.pdf";
 		$userName = "myuser";
 		$passWord = "mypassword";
 		$pdf = new Pdf();
@@ -148,19 +144,19 @@ class InstructionsExample
 		return $pdf;
 	}
 
-	public static function MergeExample()
+	public static function MergeExample(string $basePath)
 	{
 		$pdf = new Pdf();
-		$pdf->AddPdf(new PdfResource(InstructionsExample::$BasePath . "DocumentA.pdf"));
-		$pdf->AddImage(new PdfResource(InstructionsExample::$BasePath . "DPDFLogo.png"));
-		$pdf->AddPdf(new PdfResource(InstructionsExample::$BasePath . "DocumentB.pdf"));
+		$pdf->AddPdf(new PdfResource($basePath . "DocumentA.pdf"));
+		$pdf->AddImage(new PdfResource($basePath . "DPDFLogo.png"));
+		$pdf->AddPdf(new PdfResource($basePath . "DocumentB.pdf"));
 		return $pdf;
 	}
 
-	public static function FormFieldsExample()
+	public static function FormFieldsExample(string $basePath)
     {
         $pdf = new Pdf();
-        $pdf->AddPdf(new PdfResource(InstructionsExample::$BasePath . "simple-form-fill.pdf"));
+        $pdf->AddPdf(new PdfResource($basePath . "simple-form-fill.pdf"));
         $formField = new FormField("nameField", "DynamicPDF");
         $formField2 = new FormField("descriptionField", "DynamicPDF CloudAPI. RealTime PDFs, Real FAST!");
         array_push($pdf->FormFields, $formField);
@@ -168,7 +164,7 @@ class InstructionsExample
 		return $pdf;
     }
 
-	public static function AddOutlinesForNewPdf()
+	public static function AddOutlinesForNewPdf(string $basePath)
 	{
 		$pdf = new Pdf();
 		$pdf->Author = "John Doe";
@@ -195,18 +191,18 @@ class InstructionsExample
 		return $pdf;
 	}
 
-	public static function AddOutlinesExistingPdf()
+	public static function AddOutlinesExistingPdf(string $basePath)
 	{
 		$pdf = new Pdf();
 		$pdf->Author = "John Doe";
 		$pdf->Title = "Existing Pdf Example";
 
-		$resource = new PdfResource(InstructionsExample::$BasePath . "AllPageElements.pdf");
+		$resource = new PdfResource($basePath . "AllPageElements.pdf");
 		$input = $pdf->AddPdf($resource);
 		$input->Id = "AllPag=eElements";
 		array_push($pdf->Inputs, $input);
 
-		$resource1 = new PdfResource(InstructionsExample::$BasePath . "OutlineExisting.pdf");
+		$resource1 = new PdfResource($basePath . "OutlineExisting.pdf");
 		$input1 = $pdf->AddPdf($resource1);
 		$input1->Id = "outlineDoc1";
 		array_push($pdf->Inputs, $input1);
@@ -220,13 +216,13 @@ class InstructionsExample
 		return $pdf;
 	}
 
-	public static function BarcodeExample()
+	public static function BarcodeExample(string $basePath)
 	{
 		$pdf = new Pdf();
 		$pdf->Author = "John Doe";
 		$pdf->Title = "Barcode Example";
 
-		$resource = new PdfResource(InstructionsExample::$BasePath . "DocumentA.pdf");
+		$resource = new PdfResource($basePath . "DocumentA.pdf");
 		$input = new PdfInput($resource);
 		array_push($pdf->Inputs, $input);
 
@@ -238,12 +234,12 @@ class InstructionsExample
 		return $pdf;
 	}
 	
-	public static function TemplateExample()
+	public static function TemplateExample(string $basePath)
 	{
 		$pdf = new Pdf();
 		$pdf->Author = "John User";
 		$pdf->Title = "Template Example One";
-		$resource = new PdfResource(InstructionsExample::$BasePath . "DocumentA.pdf");
+		$resource = new PdfResource($basePath . "DocumentA.pdf");
 		$input = new PdfInput($resource);
 		array_push($pdf->Inputs, $input);
 
@@ -255,4 +251,3 @@ class InstructionsExample
 	}
 
 }
-InstructionsExample::Run();

@@ -1,21 +1,17 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
-
 use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\PdfText;
 
-// https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/pdf-text/tutorial-pdf-text
-
-class ExtractText
+require __DIR__ . '/vendor/autoload.php';
+include_once __DIR__ . '/DynamicPdfExamples.php';
+class ExtractTextExample
 {
-    private static string $BasePath = "C:/temp/dynamicpdf-api-samples/extract-text/";
-
-    public static function Run()
+    public static function Run(string $apikey, string $path)
     {
-        $resource = new PdfResource(ExtractText::$BasePath . "fw4.pdf");
+        $resource = new PdfResource($path . "fw4.pdf");
         $pdfText = new PdfText($resource);
-        $pdfText->ApiKey ="DP.xxx-api-key-xxx";
+        $pdfText->ApiKey =$apikey;
 
         $response = $pdfText->Process();
        
@@ -30,4 +26,4 @@ class ExtractText
         }
     }
 }
-ExtractText::Run();
+#ExtractTextExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/extract-text-pdf-text-endpoint/");

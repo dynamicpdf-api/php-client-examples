@@ -5,19 +5,15 @@ use DynamicPDF\Api\Elements\ElementPlacement;
 use DynamicPDF\Api\RgbColor;
 use DynamicPDF\Api\Pdf;
 use DynamicPDF\Api\Font;
-
+include_once __DIR__ . '/DynamicPdfExamples.php';
 require __DIR__ . '/vendor/autoload.php';
 
 class PdfExample
 {
-
-    private static string $BasePath = "C:/temp/dynamicpdf-api-usersguide-examples/";
-	private static string $ApiKey = "DP.xxx-api-key-xxx";
-
-    public static function Run()
+    public static function Run(string $apikey, string $path)
     {
         $pdf = new Pdf();
-        $pdf->ApiKey = PdfExample::$ApiKey;
+        $pdf->ApiKey = $apikey;
         $pdf->Author = "John Doe";
         $pdf->Title = "My Blank PDF Page";
         $pageInput = $pdf->AddPage(1008, 612);
@@ -29,10 +25,9 @@ class PdfExample
         $pdfResponse = $pdf->Process();
         if($pdfResponse->IsSuccessful)
         {
-            file_put_contents(PdfExample::$BasePath . "php-pdf-example-output.pdf", $pdfResponse->Content);
+            file_put_contents($path . "php-pdf-example-output.pdf", $pdfResponse->Content);
         } else { 
             echo($pdfResponse->ErrorJson);
         }       
     }
 }
-PdfExample::Run();

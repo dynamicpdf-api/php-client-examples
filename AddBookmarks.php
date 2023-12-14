@@ -1,10 +1,8 @@
 <?php
-
+include_once __DIR__ . '/DynamicPdfExamples.php';
 require __DIR__ . '/vendor/autoload.php';
-
 use DynamicPDF\Api\Pdf;
 use DynamicPDF\Api\PdfResource;
-use DynamicPDF\Api\PdfInput;
 use DynamicPDF\Api\RgbColor;
 use DynamicPDF\Api\UrlAction;
 
@@ -12,16 +10,14 @@ use DynamicPDF\Api\UrlAction;
 
 class AddBookmarks
 {
-    private static string $BasePath = "C:/temp/dynamicpdf-api-samples/add-bookmarks/";
-
-	public static function Run()
+	public static function Run(string $apikey, string $path)
 	{
 		$pdf = new Pdf();
-        $pdf->ApiKey ="DP.xxx-api-key-xxx";
+        $pdf->ApiKey = $apikey;
 
-		$resourceA = new PdfResource(AddBookmarks::$BasePath . "DocumentA.pdf");
-        $resourceB = new PdfResource(AddBookmarks::$BasePath . "DocumentB.pdf");
-        $resourceC = new PdfResource(AddBookmarks::$BasePath . "DocumentC.pdf");
+		$resourceA = new PdfResource($path . "DocumentA.pdf");
+        $resourceB = new PdfResource($path . "DocumentB.pdf");
+        $resourceC = new PdfResource($path . "DocumentC.pdf");
 
 		$inputA = $pdf->AddPdf($resourceA);
 		$inputA->Id = "documentA";
@@ -63,10 +59,10 @@ class AddBookmarks
         //if successful write to file
         if($response->IsSuccessful)
         {
-            file_put_contents(AddBookmarks::$BasePath . "add-bookmarks-php-output.pdf", $response->Content);
+            file_put_contents($path . "add-bookmarks-php-output.pdf", $response->Content);
         } else {
             echo($response->ErrorJson);
         }
     }
 }
-AddBookmarks::Run();
+#AddBookmarks::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/add-bookmarks/");

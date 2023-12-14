@@ -1,27 +1,25 @@
 <?php
 use DynamicPDF\Api\HtmlResource;
 use DynamicPDF\Api\Pdf;
+include_once __DIR__ . '/DynamicPdfExamples.php';
 require __DIR__ . '/vendor/autoload.php';
 class HtmlToPdf {
+    
+    public static function Run(string $apikey, string $path, string $outpath){
 
-    private static string $BasePath = "C:/temp/html-to-pdf";
-    private static string $resource = "C:/temp/html-to-pdf/products.html";
-    private static string $ApiKey = "DP.xxx-api-key-xxx";
-
-    public static function Run(){
         $pdf = new Pdf();
-        $pdf->ApiKey =HtmlToPdf::$ApiKey;
+        $pdf->ApiKey =$apikey;
         $pdf->AddHtml("<html>An example HTML fragment.</html>");
         $pdf->AddHtml("<html><p>HTML with basepath.</p><img src='./images/logo.png'></img></html>", "https://www.dynamicpdf.com");
-        $htmlResource = new HtmlResource(HtmlToPdf::$resource);
+        $htmlResource = new HtmlResource($path . "products.html");
         $pdf->AddHtml($htmlResource);
         $pdfResponse = $pdf->Process();
         if($pdfResponse->IsSuccessful)
         {
             echo($pdfResponse->ErrorMessage);
         }
-        file_put_contents(HtmlToPdf::$BasePath . "/html-pdf-output-php.pdf", $pdfResponse->Content);
+        file_put_contents($outpath . "html-pdf-output-php.pdf", $pdfResponse->Content);
 
     }
 }
-HtmlToPdf::Run();
+#HtmlToPdf::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$USERS_GUIDE_RESOURCE_PATH, DynamicPdfExamples::$OUTPUT_PATH);

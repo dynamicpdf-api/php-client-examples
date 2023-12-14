@@ -1,19 +1,17 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-
+include_once __DIR__ . '/DynamicPdfExamples.php';
 use DynamicPDF\Api\PdfXmp;
 use DynamicPDF\Api\PdfResource;
 
 class GetXmpMetaData {
 
-    private static string $BasePath = "C:/temp/dynamicpdf-api-samples/get-xmp-metadata/";
-
-    public static function Run()
+    public static function Run(string $apikey, string $path)
     {
-        $resource = new PdfResource(GetXmpMetaData::$BasePath . "fw4.pdf");
+        $resource = new PdfResource($path . "fw4.pdf");
         $pdfXmp = new PdfXmp($resource);
-        $pdfXmp->ApiKey = "DP.xxx-api-key-xxx";
+        $pdfXmp->ApiKey = $apikey;
         $response = $pdfXmp->Process();
         
         if($response->IsSuccessful)
@@ -24,4 +22,4 @@ class GetXmpMetaData {
         }
     }
 }
-GetXmpMetaData::Run();
+#GetXmpMetaData::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/get-xmp-metadata-pdf-xmp-endpoint/");
