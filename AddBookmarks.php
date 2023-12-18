@@ -10,7 +10,7 @@ use DynamicPDF\Api\UrlAction;
 
 class AddBookmarks
 {
-	public static function Run(string $apikey, string $path)
+	public static function Run(string $apikey, string $path, string $output_path)
 	{
 		$pdf = new Pdf();
         $pdf->ApiKey = $apikey;
@@ -59,10 +59,9 @@ class AddBookmarks
         //if successful write to file
         if($response->IsSuccessful)
         {
-            file_put_contents($path . "add-bookmarks-php-output.pdf", $response->Content);
+            file_put_contents($output_path . "add-bookmarks-php-output.pdf", $response->Content);
         } else {
             echo($response->ErrorJson);
         }
     }
 }
-#AddBookmarks::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/add-bookmarks/");

@@ -10,7 +10,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 class CreatePdfDlex {
 
-    public static function Run(string $apikey, string $path) {
+    public static function Run(string $apikey, string $path, string $output_path) {
 
         $pdf = new Pdf();
         $pdf->ApiKey =$apikey;
@@ -23,7 +23,7 @@ class CreatePdfDlex {
         //if response is successful the save the PDF returned from endpoint
         if($response->IsSuccessful)
         {
-            file_put_contents($path . "create-pdf-dlex-php-output.pdf", $response->Content);
+            file_put_contents($output_path . "create-pdf-dlex-php-output.pdf", $response->Content);
         } else { 
             echo($response->ErrorJson);
         }

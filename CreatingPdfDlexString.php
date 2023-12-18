@@ -8,7 +8,7 @@ use DynamicPDF\Api\LayoutDataResource;
 
 class CreatingPdfDlexString
 {
-    public static function Run(string $apikey, string $path)
+    public static function Run(string $apikey, string $path, string $output_path)
     {
         $file_content = file($path . "SimpleReportWithCoverPage.json");
         $layoutData = new LayoutDataResource($file_content);
@@ -23,10 +23,9 @@ class CreatingPdfDlexString
         //if response is successful the save the PDF returned from endpoint
         if($response->IsSuccessful)
         {
-            file_put_contents($path . "create-pdf-dlex-php-string-output.pdf", $response->Content);
+            file_put_contents($output_path . "create-pdf-dlex-php-string-output.pdf", $response->Content);
         } else { 
             echo($response->ErrorJson);
         }
     }
 }
-#CreatePdfDlexString::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/creating-pdf-pdf-endpoint/");

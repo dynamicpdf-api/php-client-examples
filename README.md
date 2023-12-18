@@ -47,6 +47,19 @@ To obtain the resources for the project, login to [cloud.dynamicpdf.com](https:/
 
 - [Resource Manager Samples](https://cloud.dynamicpdf.com/docs/usersguide/environment-manager/environment-manager-sample-resources)  
 
+You need the following samples folder in your Cloud Storage space to run all the examples.
+
+- samples/report-with-cover-page
+- samples/creating-pdf-pdf-endpoint
+- samples/creating-a-report-template-designer
+- samples/creating-a-page-template-designer
+- samples/dlex-layout
+- samples/merge-pdfs-pdf-endpoint
+- samples/fill-acro-form-pdf-endpoint
+- samples/creating-a-page-template-designer
+
+Local files are in the `resources` folder.  The created PDFs are placed in the project's `output` folder (created when run in `DynamicPdfExamples`).
+
 ## Tutorials
 
 The following table lists the available tutorials.

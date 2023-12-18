@@ -7,7 +7,7 @@ use DynamicPDF\Api\DlexLayout;
 
 class GettingStartedInFive
 {
-    public static function Run(string $apikey, string $path)
+    public static function Run(string $apikey, string $path, string $output_path)
     {
         $layoutData = new LayoutDataResource($path . "getting-started.json");
         $dlexEndpoint = new DlexLayout("samples/getting-started/getting-started.dlex", $layoutData);
@@ -16,7 +16,7 @@ class GettingStartedInFive
 
         if($response->IsSuccessful)
         {
-            file_put_contents($path . "getting-started-php-output.pdf", $response->Content);
+            file_put_contents($output_path . "getting-started-php-output.pdf", $response->Content);
         } else {
             echo("Error: ");
             echo($response->StatusCode);
@@ -24,4 +24,3 @@ class GettingStartedInFive
         }
     }
 }
-#GettingStartedInFive::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/getting-started/");

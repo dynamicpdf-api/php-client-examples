@@ -10,7 +10,7 @@ use DynamicPDF\Api\FormField;
 
 class CompletingAcroForm
 {
-    public static function Run(string $apikey, string $path)
+    public static function Run(string $apikey, string $path, string $output_path)
     {
         $pdf = new Pdf();
         $pdf->ApiKey = $apikey;
@@ -44,7 +44,7 @@ class CompletingAcroForm
         //if response is successful the save the PDF returned from endpoint
         if($response->IsSuccessful)
         {
-            file_put_contents($path . "fill-acro-form-php-output.pdf", $response->Content);
+            file_put_contents($output_path . "fill-acro-form-php-output.pdf", $response->Content);
         } else {
             echo("Error: ");
             echo($response->StatusCode);

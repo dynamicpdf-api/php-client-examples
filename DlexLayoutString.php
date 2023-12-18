@@ -9,7 +9,7 @@ require __DIR__ . '/vendor/autoload.php';
 class DlexLayoutString
 {
 
-    public static function Run(string $apikey, string $path)
+    public static function Run(string $apikey, string $path, string $output_path)
     {
         $file_content = file($path . "SimpleReportWithCoverPage.json");
         $layoutData = new LayoutDataResource($file_content);
@@ -18,10 +18,9 @@ class DlexLayoutString
         $response = $dlexEndpoint->Process();
         if($response->IsSuccessful)
         {
-            file_put_contents($path . "php-dlex-layout-string-example-output.pdf", $response->Content);
+            file_put_contents($output_path . "php-dlex-layout-string-example-output.pdf", $response->Content);
         } else { 
             echo($response->ErrorJson);
         }  
     }
 }
-#DlexLayoutString::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/dlex-layout/");

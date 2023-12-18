@@ -5,7 +5,7 @@ include_once __DIR__ . '/DynamicPdfExamples.php';
 require __DIR__ . '/vendor/autoload.php';
 class HtmlToPdf {
     
-    public static function Run(string $apikey, string $path, string $outpath){
+    public static function Run(string $apikey, string $path, string $output_path){
 
         $pdf = new Pdf();
         $pdf->ApiKey =$apikey;
@@ -18,8 +18,7 @@ class HtmlToPdf {
         {
             echo($pdfResponse->ErrorMessage);
         }
-        file_put_contents($outpath . "html-pdf-output-php.pdf", $pdfResponse->Content);
+        file_put_contents($output_path . "html-pdf-output-php.pdf", $pdfResponse->Content);
 
     }
 }
-#HtmlToPdf::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$USERS_GUIDE_RESOURCE_PATH, DynamicPdfExamples::$OUTPUT_PATH);
