@@ -1,11 +1,22 @@
 <?php
 
+##############################################################
+# An example code snippet using the pdf endpoint with a dlex
+# and layoutdata
+##############################################################
+
+
 include_once('wordpress-dpdf-base.php');
 
-$dpdf_apiKey = "DP.dSqLTwcxLyg1eGccOmyQ07QJ7e6SuJ9iK65gClCjn/zcSaV30upaYADW"; 
+# be certain to set the api key and if running on wordpress, the argIsDebug to false.
+
+$dpdf_apiKey = "DP.---api-key---"; 
 $dpdf_argIsDebug = true;
 
 $dpdfBase = new DynamicPdfWordPressBase();
+
+# set the local path to the json layout data
+# and the local path to the instructions.json
 
 $dpdfBase->set_dpdf_isLocalDebug($dpdf_argIsDebug);
 $dpdfBase->dpdf_initialize("pdf");

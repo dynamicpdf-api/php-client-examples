@@ -1,8 +1,13 @@
 <?php
 
+
+##############################################################
+# An example code snippet using the dlex-layout endpoint
+##############################################################
+
 include_once('wordpress-dpdf-base.php');
 
-$dpdf_apiKey = "DP.dSqLTwcxLyg1eGccOmyQ07QJ7e6SuJ9iK65gClCjn/zcSaV30upaYADW"; 
+$dpdf_apiKey = "DP.---api-key---"; 
 $dpdf_argIsDebug = true;
 
 $dpdfBase = new DynamicPdfWordPressBase();
