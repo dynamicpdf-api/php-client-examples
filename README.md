@@ -1,4 +1,4 @@
-![](./logo-banner2.png)
+
 
 php-client-examples
 =========================================

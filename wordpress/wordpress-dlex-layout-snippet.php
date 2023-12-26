@@ -15,7 +15,7 @@ $dpdfBase = new DynamicPdfWordPressBase();
 $dpdfBase->set_dpdf_isLocalDebug($dpdf_argIsDebug);
 $dpdfBase->dpdf_initialize("dlex-layout");
 $dpdf_jsonFileName = "report-with-cover-page.json";
-$dpdf_dlexRelativePath = "samples/blog-dynamic-columns/report-with-cover-page.dlex";
+$dpdf_dlexRelativePath = "samples/report-with-cover-page/report-with-cover-page.dlex";
 $dpdf_jsonDataPath = $dpdfBase->get_dpdf_basePath() . "/" . $dpdf_jsonFileName ;
 
 $dpdf_ch = curl_init();
