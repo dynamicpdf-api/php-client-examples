@@ -1,0 +1,74 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "ea3c7cd11d24d3fefd77b72c1906fe81",
+    "packages": [
+        {
+            "name": "dynamicpdf/api",
+            "version": "v1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dynamicpdf-api/php-client.git",
+                "reference": "127219fd83f9f2e3f7bda608913252cc0f6cd752"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dynamicpdf-api/php-client/zipball/127219fd83f9f2e3f7bda608913252cc0f6cd752",
+                "reference": "127219fd83f9f2e3f7bda608913252cc0f6cd752",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-fileinfo": "*",
+                "php": ">=7.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DynamicPDF\\Api\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "DynamicPDF API",
+                    "email": "support@dynamicpdf.com"
+                }
+            ],
+            "description": "PHP client library for the DynamicPDF Cloud API.",
+            "homepage": "https://cloud.dynamicpdf.com/",
+            "keywords": [
+                "api",
+                "create",
+                "encrypt",
+                "form fill",
+                "merge",
+                "pdf",
+                "report"
+            ],
+            "support": {
+                "issues": "https://github.com/dynamicpdf-api/php-client/issues",
+                "source": "https://github.com/dynamicpdf-api/php-client/tree/v1.4.0"
+            },
+            "time": "2023-12-21T07:19:39+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}
