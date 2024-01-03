@@ -20,11 +20,12 @@ include_once __DIR__ . '/PdfHtmlExample.php';
 include_once __DIR__ . '/PdfInfoExample.php';
 include_once __DIR__ . '/PdfTextExample.php';
 include_once __DIR__ . '/PdfXmpExample.php';
+include_once __DIR__. '/WordToPdfExample.php';
 include_once __DIR__ . '/InstructionsExample.php';
 
 class DynamicPdfExamples
 {
-    public static string $API_KEY = "DP--api-key---";
+    public static string $API_KEY = "DP--api-key--";
     public static string $BASE_PATH = "./resources";
     public static string $OUTPUT_PATH = "./output";
 
@@ -36,6 +37,7 @@ class DynamicPdfExamples
 
         DynamicPdfExamples::$OUTPUT_PATH = DynamicPdfExamples::$OUTPUT_PATH . "/";
 
+        WordToPdf::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/word-pdf/", DynamicPdfExamples::$OUTPUT_PATH);
         AddBookmarks::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/add-bookmarks/", DynamicPdfExamples::$OUTPUT_PATH);
         CompletingAcroForm::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/fill-acro-form-pdf-endpoint/", DynamicPdfExamples::$OUTPUT_PATH);
         CreatePdfDlex::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/creating-pdf-pdf-endpoint/", DynamicPdfExamples::$OUTPUT_PATH);
