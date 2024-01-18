@@ -24,22 +24,28 @@ include_once __DIR__. '/WordToPdfExample.php';
 include_once __DIR__ . '/InstructionsExample.php';
 include_once __DIR__ . '/SolutionImagesTextRecExample.php';
 include_once __DIR__ . '/ImageConversion.php';
+include_once __DIR__ . '/PdfBarcode.php';
+include_once __DIR__ . '/OutlinesSolution.php';
 
 class DynamicPdfExamples
 {
-    public static string $API_KEY = "DP.YiiwxLayFM+8Euh8maikrjYLUDj91/p3e5Yl72Ij1Np6SJK932bSdiHi";
+    public static string $API_KEY = "DP.--api-key--";
     public static string $BASE_PATH = "./resources";
     public static string $OUTPUT_PATH = "./output";
 
     public static function Run() {
 
         if (!file_exists(DynamicPdfExamples::$OUTPUT_PATH)) {
-            mkdir(DynamicPdfExamples::$OUTPUT_PATH, 0777,false);
+            mkdir(DynamicPdfExamples::$OUTPUT_PATH, 0777, false);
         }
-
+        
         DynamicPdfExamples::$OUTPUT_PATH = DynamicPdfExamples::$OUTPUT_PATH . "/";
 
-        ImageConversion::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/image-conversion/", DynamicPdfExamples::$OUTPUT_PATH);
+        OutlinesSolution::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/outlines/", DynamicPdfExamples::$OUTPUT_PATH);
+
+        //PdfBarcode::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/image-conversion/", DynamicPdfExamples::$OUTPUT_PATH);
+
+        //ImageConversion::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/image-conversion/", DynamicPdfExamples::$OUTPUT_PATH);
         /*SolutionImagesTextRecExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/images-text-recs/", DynamicPdfExamples::$OUTPUT_PATH);
         WordToPdf::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/word-pdf/", DynamicPdfExamples::$OUTPUT_PATH);
         AddBookmarks::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/add-bookmarks/", DynamicPdfExamples::$OUTPUT_PATH);
