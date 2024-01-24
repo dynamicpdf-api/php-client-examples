@@ -26,10 +26,11 @@ include_once __DIR__ . '/SolutionImagesTextRecExample.php';
 include_once __DIR__ . '/ImageConversion.php';
 include_once __DIR__ . '/PdfBarcode.php';
 include_once __DIR__ . '/OutlinesSolution.php';
+include_once __DIR__ . '/DeletePages.php';
 
 class DynamicPdfExamples
 {
-    public static string $API_KEY = "DP.--api-key--";
+    public static string $API_KEY = "DP--api-key--";
     public static string $BASE_PATH = "./resources";
     public static string $OUTPUT_PATH = "./output";
 
@@ -41,12 +42,14 @@ class DynamicPdfExamples
         
         DynamicPdfExamples::$OUTPUT_PATH = DynamicPdfExamples::$OUTPUT_PATH . "/";
 
+        DeletePages::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/delete-pages/", DynamicPdfExamples::$OUTPUT_PATH);
+
         OutlinesSolution::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/outlines/", DynamicPdfExamples::$OUTPUT_PATH);
 
-        //PdfBarcode::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/image-conversion/", DynamicPdfExamples::$OUTPUT_PATH);
+        PdfBarcode::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/image-conversion/", DynamicPdfExamples::$OUTPUT_PATH);
 
-        //ImageConversion::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/image-conversion/", DynamicPdfExamples::$OUTPUT_PATH);
-        /*SolutionImagesTextRecExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/images-text-recs/", DynamicPdfExamples::$OUTPUT_PATH);
+        ImageConversion::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/image-conversion/", DynamicPdfExamples::$OUTPUT_PATH);
+        SolutionImagesTextRecExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/images-text-recs/", DynamicPdfExamples::$OUTPUT_PATH);
         WordToPdf::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/word-pdf/", DynamicPdfExamples::$OUTPUT_PATH);
         AddBookmarks::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/add-bookmarks/", DynamicPdfExamples::$OUTPUT_PATH);
         CompletingAcroForm::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/fill-acro-form-pdf-endpoint/", DynamicPdfExamples::$OUTPUT_PATH);
@@ -68,7 +71,7 @@ class DynamicPdfExamples
         PdfTextExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/extract-text-pdf-text-endpoint/");
         PdfXmpExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/get-xmp-metadata-pdf-xmp-endpoint/");
         InstructionsExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/users-guide/", DynamicPdfExamples::$OUTPUT_PATH);
-        */
+    
     } 
 }
 DynamicPdfExamples::Run();
