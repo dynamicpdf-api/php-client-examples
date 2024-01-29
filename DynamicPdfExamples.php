@@ -28,6 +28,7 @@ include_once __DIR__ . '/PdfBarcode.php';
 include_once __DIR__ . '/OutlinesSolution.php';
 include_once __DIR__ . '/DeletePages.php';
 include_once __DIR__ . '/SplitPdf.php';
+include_once __DIR__ . '/FormFlattenDelete.php';
 class DynamicPdfExamples
 {
     public static string $API_KEY = "DP--api-key--";
@@ -41,6 +42,8 @@ class DynamicPdfExamples
         }
         
         DynamicPdfExamples::$OUTPUT_PATH = DynamicPdfExamples::$OUTPUT_PATH . "/";
+
+        FormFlattenDelete::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/form-field-flatten/", DynamicPdfExamples::$OUTPUT_PATH);
 
         SplitPdf::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/split-pdf/", DynamicPdfExamples::$OUTPUT_PATH);
 
