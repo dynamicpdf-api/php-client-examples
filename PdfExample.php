@@ -10,7 +10,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 class PdfExample
 {
-    public static function Run(string $apikey, string $path)
+    public static function Run(string $apikey, string $path, string $output_path)
     {
         $pdf = new Pdf();
         $pdf->ApiKey = $apikey;
@@ -25,7 +25,7 @@ class PdfExample
         $pdfResponse = $pdf->Process();
         if($pdfResponse->IsSuccessful)
         {
-            file_put_contents($path . "php-pdf-example-output.pdf", $pdfResponse->Content);
+            file_put_contents($output_path . "php-pdf-example-output.pdf", $pdfResponse->Content);
         } else { 
             echo($pdfResponse->ErrorJson);
         }       

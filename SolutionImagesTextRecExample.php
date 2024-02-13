@@ -30,7 +30,7 @@ class SolutionImagesTextRecExample
         $textElement->YOffset = 100;
         array_push($pageInput->Elements, $textElement);
         
-        $element = new LineElement(ElementPlacement::TopLeft, 900, 150);
+        $element = new LineElement(900, 150, ElementPlacement::TopLeft);
         $element->Color = RgbColor::Red();
         $element->XOffset = 305;
         $element->YOffset = 150;

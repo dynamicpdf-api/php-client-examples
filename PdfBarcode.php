@@ -10,14 +10,14 @@ require __DIR__ . '/vendor/autoload.php';
 
 class PdfBarcode
 {
-    public static function Run(string $apikey, string $path)
+    public static function Run(string $apikey, string $output_path)
     {
         $pdf = new Pdf();
         $pdf->ApiKey = $apikey;
         $pdf->Author = "John Doe";
         $pdf->Title = "My Blank PDF Page";
         $pageInput = $pdf->AddPage(1008, 612);
-        $code11BarcodeElement = new Code11BarcodeElement("12345678", ElementPlacement::TopCenter, 200, 50, 50);
+        $code11BarcodeElement = new Code11BarcodeElement("12345678", 200, ElementPlacement::TopCenter, 50, 50);
         $code11BarcodeElement->Color = RgbColor::Red();
  
         array_push($pageInput->Elements, $code11BarcodeElement);
@@ -25,7 +25,7 @@ class PdfBarcode
  
         if($pdfResponse->IsSuccessful)
         {
-            file_put_contents($path . "barcode-pdf-output.pdf", $pdfResponse->Content);
+            file_put_contents($output_path . "barcode-pdf-output.pdf", $pdfResponse->Content);
         } else { 
             echo($pdfResponse->ErrorJson);
         }       

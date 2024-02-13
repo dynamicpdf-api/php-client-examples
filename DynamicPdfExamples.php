@@ -51,7 +51,7 @@ class DynamicPdfExamples
 
         OutlinesSolution::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/outlines/", DynamicPdfExamples::$OUTPUT_PATH);
 
-        PdfBarcode::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/image-conversion/", DynamicPdfExamples::$OUTPUT_PATH);
+        PdfBarcode::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$OUTPUT_PATH);
 
         ImageConversion::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/image-conversion/", DynamicPdfExamples::$OUTPUT_PATH);
         SolutionImagesTextRecExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/images-text-recs/", DynamicPdfExamples::$OUTPUT_PATH);
@@ -66,12 +66,12 @@ class DynamicPdfExamples
         GetImageInfo::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/get-image-info-image-info-endpoint/");
         GetPdfInfo::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/get-pdf-info-pdf-info-endpoint/");
         GettingStartedInFive::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/getting-started/", DynamicPdfExamples::$OUTPUT_PATH);
-        HtmlToPdf::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH, DynamicPdfExamples::$OUTPUT_PATH);
+        HtmlToPdf::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/users-guide/", DynamicPdfExamples::$OUTPUT_PATH);
         ImageInfoExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/image-info/");
         MergePdfs::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/merge-pdfs-pdf-endpoint/", DynamicPdfExamples::$OUTPUT_PATH);
         PdfExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/pdf-example/", DynamicPdfExamples::$OUTPUT_PATH);
         PdfHtmlCssWorkAroundExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/users-guide/", DynamicPdfExamples::$OUTPUT_PATH);
-        PdfHtmlExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/pdf-html-example/", DynamicPdfExamples::$OUTPUT_PATH);
+        PdfHtmlExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/users-guide/", DynamicPdfExamples::$OUTPUT_PATH);
         PdfInfoExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/pdf-info/");
         PdfTextExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/extract-text-pdf-text-endpoint/");
         PdfXmpExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/get-xmp-metadata-pdf-xmp-endpoint/");

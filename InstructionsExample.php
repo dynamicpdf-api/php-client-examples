@@ -1,6 +1,7 @@
 <?php
 
 use DynamicPDF\Api\Aes256Security;
+use DynamicPDF\Api\ImageResource;
 use DynamicPDF\Api\Pdf;
 use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\PdfInput;
@@ -72,13 +73,23 @@ class InstructionsExample
 		$pdf = new Pdf();
         $pdf->AddHtml("<html><p>This is a test.</p></html>");
 
-        $resource = new HtmlResource($basePath . "HtmlWithAllTags.html");
+		$file =  HtmlToPdf::GetFileData($basePath . "HtmlWithAllTags.html");
+        $resource = new HtmlResource($file);
         $pdf->AddHtml($resource);
 
         $pdf->AddHtml("<html><img src='./images/logo.png'></img></html>", "https://www.dynamicpdf.com");
 
 		return $pdf;
 	}
+
+	public static function GetFileData(string $filePath)
+    {
+        $length = filesize($filePath);
+        $file = fopen($filePath, "r");
+        $array = fread($file, $length);
+        fclose($file);
+        return $array;
+    }
 
 	public static function TopLevelMetaData(string $basePath)
 	{
@@ -148,7 +159,7 @@ class InstructionsExample
 	{
 		$pdf = new Pdf();
 		$pdf->AddPdf(new PdfResource($basePath . "DocumentA.pdf"));
-		$pdf->AddImage(new PdfResource($basePath . "DPDFLogo.png"));
+		$pdf->AddImage(new ImageResource($basePath . "DPDFLogo.png"));
 		$pdf->AddPdf(new PdfResource($basePath . "DocumentB.pdf"));
 		return $pdf;
 	}
@@ -230,7 +241,7 @@ class InstructionsExample
 
 		$element = new AztecBarcodeElement("Hello World", ElementPlacement::TopCenter, 0, 500);
 		array_push($template->Elements, $element);
-		$input->Template = $template;
+		$input->SetTemplate($template);
 		return $pdf;
 	}
 	
