@@ -16,7 +16,7 @@ class PdfHtmlExample {
         $pdf->ApiKey = $apikey;
         $pdf->AddHtml("<html><p>This is a test.</p></html>");
 
-        $filePath =  PdfHtmlExample::GetFileData($path . "HtmlWithAllTags.html");
+        $filePath =  DynamicPdfExamples::GetFileData($path . "HtmlWithAllTags.html");
         $resource = new HtmlResource($filePath);
         $pdf->AddHtml($resource);
 
@@ -32,14 +32,5 @@ class PdfHtmlExample {
         } else { 
             echo($response->ErrorJson);
         }
-    }
-
-    public static function GetFileData(string $filePath)
-    {
-        $length = filesize($filePath);
-        $file = fopen($filePath, "r");
-        $array = fread($file, $length);
-        fclose($file);
-        return $array;
     }
 }

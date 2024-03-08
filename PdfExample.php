@@ -10,7 +10,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 class PdfExample
 {
-    public static function Run(string $apikey, string $path, string $output_path)
+    public static function Run(string $apikey, string $output_path)
     {
         $pdf = new Pdf();
         $pdf->ApiKey = $apikey;

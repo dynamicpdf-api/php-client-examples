@@ -11,7 +11,7 @@ class HtmlToPdf {
         $pdf->ApiKey =$apikey;
         $pdf->AddHtml("<html>An example HTML fragment.</html>");
         $pdf->AddHtml("<html><p>HTML with basepath.</p><img src='./images/logo.png'></img></html>", "https://www.dynamicpdf.com");
-        $file =  HtmlToPdf::GetFileData($path . "products.html");
+        $file =  DynamicPdfExamples::GetFileData($path . "products.html");
         $htmlResource = new HtmlResource($file);
         $pdf->AddHtml($htmlResource);
         $pdfResponse = $pdf->Process();
@@ -21,14 +21,5 @@ class HtmlToPdf {
         } else {
             echo($pdfResponse->ErrorMessage);
         }       
-    }
-
-    public static function GetFileData(string $filePath)
-    {
-        $length = filesize($filePath);
-        $file = fopen($filePath, "r");
-        $array = fread($file, $length);
-        fclose($file);
-        return $array;
     }
 }

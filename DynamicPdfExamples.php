@@ -10,6 +10,7 @@ include_once __DIR__ . '/DlexLayoutString.php';
 include_once __DIR__ . '/ExtractTextExample.php';
 include_once __DIR__ . '/GetImageInfo.php';
 include_once __DIR__ . "/GettingStartedInFive.php";
+include_once __DIR__ . '/GoogleFontExample.php';
 include_once __DIR__ . '/HtmlToPdf.php';
 include_once __DIR__ . '/ImageInfoExample.php';
 include_once __DIR__ . '/MergePdfs.php';
@@ -20,7 +21,7 @@ include_once __DIR__ . '/PdfHtmlExample.php';
 include_once __DIR__ . '/PdfInfoExample.php';
 include_once __DIR__ . '/PdfTextExample.php';
 include_once __DIR__ . '/PdfXmpExample.php';
-include_once __DIR__. '/WordToPdfExample.php';
+include_once __DIR__ . '/WordToPdfExample.php';
 include_once __DIR__ . '/InstructionsExample.php';
 include_once __DIR__ . '/SolutionImagesTextRecExample.php';
 include_once __DIR__ . '/ImageConversion.php';
@@ -66,10 +67,11 @@ class DynamicPdfExamples
         GetImageInfo::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/get-image-info-image-info-endpoint/");
         GetPdfInfo::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/get-pdf-info-pdf-info-endpoint/");
         GettingStartedInFive::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/getting-started/", DynamicPdfExamples::$OUTPUT_PATH);
+        GoogleFontExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$OUTPUT_PATH);
         HtmlToPdf::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/users-guide/", DynamicPdfExamples::$OUTPUT_PATH);
         ImageInfoExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/image-info/");
         MergePdfs::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/merge-pdfs-pdf-endpoint/", DynamicPdfExamples::$OUTPUT_PATH);
-        PdfExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/pdf-example/", DynamicPdfExamples::$OUTPUT_PATH);
+        PdfExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$OUTPUT_PATH);
         PdfHtmlCssWorkAroundExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/users-guide/", DynamicPdfExamples::$OUTPUT_PATH);
         PdfHtmlExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/users-guide/", DynamicPdfExamples::$OUTPUT_PATH);
         PdfInfoExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/pdf-info/");
@@ -77,7 +79,16 @@ class DynamicPdfExamples
         PdfXmpExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/get-xmp-metadata-pdf-xmp-endpoint/");
         InstructionsExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/users-guide/", DynamicPdfExamples::$OUTPUT_PATH);
     
-    } 
+    }
+    
+    public static function GetFileData(string $filePath)
+    {
+        $length = filesize($filePath);
+        $file = fopen($filePath, "r");
+        $array = fread($file, $length);
+        fclose($file);
+        return $array;
+    }
 }
 DynamicPdfExamples::Run();
 ?>

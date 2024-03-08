@@ -73,7 +73,7 @@ class InstructionsExample
 		$pdf = new Pdf();
         $pdf->AddHtml("<html><p>This is a test.</p></html>");
 
-		$file =  HtmlToPdf::GetFileData($basePath . "HtmlWithAllTags.html");
+		$file =  DynamicPdfExamples::GetFileData($basePath . "HtmlWithAllTags.html");
         $resource = new HtmlResource($file);
         $pdf->AddHtml($resource);
 
@@ -81,15 +81,6 @@ class InstructionsExample
 
 		return $pdf;
 	}
-
-	public static function GetFileData(string $filePath)
-    {
-        $length = filesize($filePath);
-        $file = fopen($filePath, "r");
-        $array = fread($file, $length);
-        fclose($file);
-        return $array;
-    }
 
 	public static function TopLevelMetaData(string $basePath)
 	{
