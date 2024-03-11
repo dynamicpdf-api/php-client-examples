@@ -1,5 +1,5 @@
 {
     "require": {
-        "dynamicpdf/api": "^1.4"
+        "dynamicpdf/api": "^2.0"
     }
 }

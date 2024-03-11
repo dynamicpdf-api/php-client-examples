@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea3c7cd11d24d3fefd77b72c1906fe81",
+    "content-hash": "54f514758dbdebd80147797238777861",
     "packages": [
         {
             "name": "dynamicpdf/api",
-            "version": "v1.4.0",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dynamicpdf-api/php-client.git",
-                "reference": "127219fd83f9f2e3f7bda608913252cc0f6cd752"
+                "reference": "76e603e19be2b43110719eeef839bdcaa7996904"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dynamicpdf-api/php-client/zipball/127219fd83f9f2e3f7bda608913252cc0f6cd752",
-                "reference": "127219fd83f9f2e3f7bda608913252cc0f6cd752",
+                "url": "https://api.github.com/repos/dynamicpdf-api/php-client/zipball/76e603e19be2b43110719eeef839bdcaa7996904",
+                "reference": "76e603e19be2b43110719eeef839bdcaa7996904",
                 "shasum": ""
             },
             "require": {
@@ -57,9 +57,9 @@
             ],
             "support": {
                 "issues": "https://github.com/dynamicpdf-api/php-client/issues",
-                "source": "https://github.com/dynamicpdf-api/php-client/tree/v1.4.0"
+                "source": "https://github.com/dynamicpdf-api/php-client/tree/v2.0.0"
             },
-            "time": "2023-12-21T07:19:39+00:00"
+            "time": "2024-02-12T10:18:28+00:00"
         }
     ],
     "packages-dev": [],
