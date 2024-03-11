@@ -32,9 +32,9 @@ include_once __DIR__ . '/SplitPdf.php';
 include_once __DIR__ . '/FormFlattenDelete.php';
 class DynamicPdfExamples
 {
-    public static string $API_KEY = "DP--API-KEY--";
+    public static string $API_KEY = "DP--api-key--";
     public static string $BASE_PATH = "./resources";
-    public static string $OUTPUT_PATH = "./output";
+    public static string $OUTPUT_PATH = "./output/";
 
     public static function Run() {
 
@@ -42,7 +42,6 @@ class DynamicPdfExamples
             mkdir(DynamicPdfExamples::$OUTPUT_PATH, 0777, false);
         }
         
-        DynamicPdfExamples::$OUTPUT_PATH = DynamicPdfExamples::$OUTPUT_PATH . "/";
 
         FormFlattenDelete::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/form-field-flatten/", DynamicPdfExamples::$OUTPUT_PATH);
 
@@ -90,5 +89,5 @@ class DynamicPdfExamples
         return $array;
     }
 }
-DynamicPdfExamples::Run();
+//DynamicPdfExamples::Run();
 ?>
