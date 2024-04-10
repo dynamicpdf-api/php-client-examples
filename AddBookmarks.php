@@ -6,8 +6,6 @@ use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\RgbColor;
 use DynamicPDF\Api\UrlAction;
 
-// https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/pdf-tutorial-bookmarks
-
 class AddBookmarks
 {
 	public static function Run(string $apikey, string $path, string $output_path)

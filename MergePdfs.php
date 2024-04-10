@@ -11,6 +11,7 @@ class MergePdfs
     {
         $pdf = new Pdf();
         $pdf->ApiKey = $apikey;
+        $pdf->BaseUrl = "https://api-euw.dpdf.io/";
 
         $pdfInput = $pdf->AddPdf(new PdfResource($path . "DocumentA.pdf"));
         $pdfInput->StartPage = 1;
@@ -31,5 +32,4 @@ class MergePdfs
         }
     }
 }
-
-//MergePdfs::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/merge-pdfs-pdf-endpoint/", DynamicPdfExamples::$OUTPUT_PATH);
+#MergePdfs::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/merge-pdfs-pdf-endpoint/", DynamicPdfExamples::$OUTPUT_PATH);
