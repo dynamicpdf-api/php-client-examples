@@ -10,11 +10,7 @@ class ExcelToPdf {
 
         $pdf = new Pdf();
         $pdf->ApiKey =$apikey;
-        $excelResource = new ExcelResource($path . "sample-data.xlsx");
-        $excelInput = new ExcelInput($excelResource);
-        
-        array_push($pdf->Inputs, $excelInput);
-
+        $pdf->AddExcel(new ExcelResource($path . "sample-data.xlsx"));
         $pdfResponse = $pdf->Process();
         if($pdfResponse->IsSuccessful)
         {
