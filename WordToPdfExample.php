@@ -21,6 +21,22 @@ class WordToPdf {
             echo($pdfResponse->ErrorMessage);
         }
         file_put_contents($output_path . "word-pdf-output-php.pdf", $pdfResponse->Content);
+    }
+
+    public static function RunTwo(string $apikey, string $path, string $output_path){
+
+        $pdf = new Pdf();
+        $pdf->ApiKey =$apikey;
+        $pdf->AddWord(new WordResource($path . "Doc1.docx"));
+
+        $pdfResponse = $pdf->Process();
+        
+        if($pdfResponse->IsSuccessful)
+        {
+            echo($pdfResponse->ErrorMessage);
+        }
+        file_put_contents($output_path . "word-pdf-output-php.pdf", $pdfResponse->Content);
 
     }
+
 }

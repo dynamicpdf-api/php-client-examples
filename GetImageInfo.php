@@ -5,7 +5,6 @@ include_once __DIR__ . '/DynamicPdfExamples.php';
 use DynamicPDF\Api\ImageResource;
 use DynamicPDF\Api\ImageInfo;
 
-// https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/image-info/tutorial-image-info
 
 class GetImageInfo
 {
@@ -26,5 +25,5 @@ class GetImageInfo
         }
     }
 }
-#GetImageInfo::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/get-image-info-image-info-endpoint/");
+GetImageInfo::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/get-image-info-image-info-endpoint/");
 

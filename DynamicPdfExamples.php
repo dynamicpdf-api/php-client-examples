@@ -32,7 +32,7 @@ include_once __DIR__ . '/SplitPdf.php';
 include_once __DIR__ . '/FormFlattenDelete.php';
 class DynamicPdfExamples
 {
-    public static string $API_KEY = "DP.--api-key--";
+    public static string $API_KEY = "DP--api-key--";
     public static string $BASE_PATH = "./resources";
     public static string $OUTPUT_PATH = "./output/";
 
