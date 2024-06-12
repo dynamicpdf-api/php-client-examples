@@ -21,5 +21,6 @@ class HtmlToPdf {
         } else {
             echo($pdfResponse->ErrorMessage);
         }       
-    }
+    }    
 }
+HtmlToPdf::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/converting-html-pdf-endpoint/", DynamicPdfExamples::$OUTPUT_PATH);
