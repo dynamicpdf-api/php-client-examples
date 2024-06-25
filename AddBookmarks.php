@@ -63,3 +63,5 @@ class AddBookmarks
         }
     }
 }
+#AddBookmarks::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/add-bookmarks/", DynamicPdfExamples::$OUTPUT_PATH);
+    

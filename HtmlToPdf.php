@@ -23,4 +23,4 @@ class HtmlToPdf {
         }       
     }    
 }
-HtmlToPdf::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/converting-html-pdf-endpoint/", DynamicPdfExamples::$OUTPUT_PATH);
+#HtmlToPdf::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/converting-html-pdf-endpoint/", DynamicPdfExamples::$OUTPUT_PATH);
