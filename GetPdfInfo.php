@@ -21,3 +21,4 @@ class GetPdfInfo
         }
     }
 }
+#GetPdfInfo::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/get-pdf-info-pdf-info-endpoint/");

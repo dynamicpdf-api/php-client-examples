@@ -89,5 +89,5 @@ class DynamicPdfExamples
         return $array;
     }
 }
-#DynamicPdfExamples::Run();
+DynamicPdfExamples::Run();
 ?>
