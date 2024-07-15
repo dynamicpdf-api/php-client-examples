@@ -8,7 +8,7 @@ use DynamicPDF\Api\Elements\ElementPlacement;
 use DynamicPDF\Api\LineStyle;
 use DynamicPDF\Api\RgbColor;
 use DynamicPDF\Api\Pdf;
-use DynamicPDF\Api\Font;
+use DynamicPDF\Api\ImageResource;
 include_once __DIR__ . '/DynamicPdfExamples.php';
 require __DIR__ . '/vendor/autoload.php';
 
@@ -30,15 +30,30 @@ class SolutionImagesTextRecExample
         $textElement->YOffset = 100;
         array_push($pageInput->Elements, $textElement);
         
-        $element = new LineElement(900, 150, ElementPlacement::TopLeft);
-        $element->Color = RgbColor::Red();
-        $element->XOffset = 305;
-        $element->YOffset = 150;
-        $element->LineStyle = LineStyle::Dash();
-        $element->Width = 4;
-        array_push($pageInput->Elements, $element);
+        $lineElement = new LineElement(900, 150, ElementPlacement::TopLeft);
+        $lineElement->Color = RgbColor::Red();
+        $lineElement->XOffset = 305;
+        $lineElement->YOffset = 150;
+        $lineElement->LineStyle = LineStyle::Dash();
+        $lineElement->Width = 4;
+        array_push($pageInput->Elements, $lineElement);
     
        
+        $recElement = new RectangleElement(100, 500, ElementPlacement::TopCenter);
+        $recElement->XOffset = -250;
+        $recElement->YOffset = -10;
+        $recElement->CornerRadius = 10;
+        $recElement->BorderWidth = 5;
+        $recElement->BorderStyle = LineStyle::Dots();
+        $recElement->BorderColor = RgbColor::Blue();
+        $recElement->FillColor = RgbColor::Green();
+        array_push($pageInput->Elements, $recElement);
+    
+        $imgResource = new ImageResource($path . "dynamicpdfLogo.png", "dynamicpdfLogo.png");
+        $imageElement = new ImageElement($imgResource, ElementPlacement::TopCenter, 835, 75);
+        array_push($pageInput->Elements, $imageElement);
+
+        echo($pdf->GetInstructionsJson(true));
         
         $pdfResponse = $pdf->Process();
         if($pdfResponse->IsSuccessful)
@@ -49,3 +64,4 @@ class SolutionImagesTextRecExample
         }       
     }
 }
+SolutionImagesTextRecExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/images-text-recs/", DynamicPdfExamples::$OUTPUT_PATH);
