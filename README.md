@@ -3,9 +3,9 @@
 php-client-examples
 =========================================
 
-The PHP Client Examples (`php-client-examples`) project uses the DynamicPDF Cloud API PHPclient library to create, merge, split, form fill, stamp, obtain metadata, convert, and secure/encrypt PDF documents.  This project contains numerous sample projects for the tutorials and examples at the [DynamicPDF Cloud API](https://cloud.dynamicpdf.com/) website.
+The PHP Client Examples (`php-client-examples`) project uses the DynamicPDF API PHP client library to create, merge, split, form fill, stamp, obtain metadata, convert, and secure/encrypt PDF documents.  This project contains numerous sample projects for the tutorials and examples at the [DynamicPDF API](https://dpdf.io/) website.
 
-The DynamicPDF Cloud API consists of the following endpoints.
+The DynamicPDF API consists of the following endpoints.
 
 * `dlex-layout`
 * `image-info`
@@ -14,7 +14,7 @@ The DynamicPDF Cloud API consists of the following endpoints.
 * `pdf-text`
 * `pdf-xmp`
 
-For more information, please visit [DynamicPDF Cloud API](https://cloud.dynamicpdf.com/ "DynamicPDF Cloud API Homepage"). Support for other languages/platforms (PHP, C#, Node.js) is available on GitHub ([DynamicPDF Cloud API at GitHub](https://github.com/dynamicpdf-api "DynamicPDF Cloud API at GitHub")).
+For more information, please visit [DynamicPDF API](https://dpdf.io/). Support for other languages/platforms (C#, Node.js, GO, Python) is available on GitHub ([DynamicPDF API at GitHub](https://github.com/dynamicpdf-api "DynamicPDF API at GitHub")).
 
 ## Client Library (`php-client`)
 
@@ -24,7 +24,7 @@ For more information, please visit [DynamicPDF Cloud API](https://cloud.dynamicp
 Running Examples
 ----------------
 
-In order to install PHP client examples for DynamicPDF Cloud API be certain you have first installed the `php-client` library using Composer. After downloading this library run the update commmand.
+In order to install PHP client examples for DynamicPDF API be certain you have first installed the `php-client` library using Composer. After downloading this library run the update commmand.
 
 ```bash
 composer update
@@ -48,9 +48,9 @@ php dynamicpdf-examples.php
 
 ## Resources
 
-To obtain the resources for the project, login to [cloud.dynamicpdf.com](https://cloud.dynamicpdf.com/) (assuming you have an account), and go to the **Resource Manager**. You use the `samples` folder to add the resources for the tutorials and examples from this project.
+To obtain the resources for the project, login to [https://dpdf.io/](https://dpdf.io/) (assuming you have an account), and go to the **File Manager**. You use the `samples` folder to add the resources for the tutorials and examples from this project.
 
-- [Resource Manager Samples](https://cloud.dynamicpdf.com/docs/usersguide/environment-manager/environment-manager-sample-resources)  
+- [File Manager Samples](https://cloud.dynamicpdf.com/docs/usersguide/environment-manager/environment-manager-sample-resources)  
 
 You need the following samples folder in your Cloud Storage space to run all the examples.
 
@@ -63,7 +63,7 @@ You need the following samples folder in your Cloud Storage space to run all the
 - samples/fill-acro-form-pdf-endpoint
 - samples/creating-a-page-template-designer
 
-Local files are in the `resources` folder.  The created PDFs are placed in the project's `output` folder (created when run in `DynamicPdfExamples`).
+Local files are in the `resources` folder.  The created PDFs are placed in the project's `output` folder, you do not need to create this folder, as constants.php does this for you.
 
 ## Tutorials
 
@@ -83,7 +83,7 @@ The following table lists the available tutorials.
 
 # Support
 
-The primary source for the DynamicPDF Cloud API support is through [Stack Overflow](https://stackoverflow.com/questions/tagged/dynamicpdf-api). Please use the "[dynamicpdf-api](https://stackoverflow.com/questions/tagged/dynamicpdf-api)" tag to ask questions. Our support team actively monitors the tag and responds promptly to any questions.  Also, let us know you asked the question by following up with an email to [support@dynamicpdf.com](mailto:support@dynamicpdf.com). 
+The primary source for the DynamicPDF API support is through [Stack Overflow](https://stackoverflow.com/questions/tagged/dynamicpdf-api). Please use the "[dynamicpdf-api](https://stackoverflow.com/questions/tagged/dynamicpdf-api)" tag to ask questions. Our support team actively monitors the tag and responds promptly to any questions.  Also, let us know you asked the question by following up with an email to [support@dynamicpdf.com](mailto:support@dynamicpdf.com). 
 
 ## Pro Plan Subscribers[#](https://cloud.dynamicpdf.com/support#pro-plan-subscribers)
 
