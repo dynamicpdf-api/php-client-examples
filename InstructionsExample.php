@@ -14,7 +14,7 @@ use DynamicPDF\Api\Font;
 use DynamicPDF\Api\Elements\AztecBarcodeElement;
 use DynamicPDF\Api\FormField;
 use DynamicPDF\Api\HtmlResource;
-include_once __DIR__ . '/DynamicPdfExamples.php';
+include_once("constants.php");
 require __DIR__ . '/vendor/autoload.php';
 
 class InstructionsExample
@@ -62,8 +62,8 @@ class InstructionsExample
 		if ($response->ErrorJson != null) {
 			echo ("\n" . $response->ErrorJson);
 		} else {
-			echo ("\n" . $pdf->GetInstructionsJson());
-			echo ("\n" . "==================================================================");
+			//echo ("\n" . $pdf->GetInstructionsJson());
+			//echo ("\n" . "==================================================================");
 			file_put_contents($outputFile, $response->Content);
 		}
 	}
@@ -73,7 +73,7 @@ class InstructionsExample
 		$pdf = new Pdf();
         $pdf->AddHtml("<html><p>This is a test.</p></html>");
 
-		$file =  DynamicPdfExamples::GetFileData($basePath . "HtmlWithAllTags.html");
+		$file = Utility::GetFileData($basePath . "HtmlWithAllTags.html");
         $resource = new HtmlResource($file);
         $pdf->AddHtml($resource);
 
@@ -251,5 +251,5 @@ class InstructionsExample
 		$input->Template = $template;
 		return $pdf;
 	}
-
 }
+InstructionsExample::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "users-guide/", CLIENT_EXAMPLES_OUTPUT_PATH);

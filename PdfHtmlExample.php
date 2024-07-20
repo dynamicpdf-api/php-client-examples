@@ -3,10 +3,8 @@
 use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\Pdf;
 use DynamicPDF\Api\HtmlResource;
-include_once __DIR__ . '/DynamicPdfExamples.php';
+include_once("constants.php");
 require __DIR__ . '/vendor/autoload.php';
-
-// https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/pdf-tutorial-dlex-pdf-endpoint
 
 class PdfHtmlExample {
 
@@ -16,7 +14,7 @@ class PdfHtmlExample {
         $pdf->ApiKey = $apikey;
         $pdf->AddHtml("<html><p>This is a test.</p></html>");
 
-        $filePath =  DynamicPdfExamples::GetFileData($path . "HtmlWithAllTags.html");
+        $filePath =  Utility::GetFileData($path . "HtmlWithAllTags.html");
         $resource = new HtmlResource($filePath);
         $pdf->AddHtml($resource);
 
@@ -34,3 +32,4 @@ class PdfHtmlExample {
         }
     }
 }
+PdfHtmlExample::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "users-guide/", CLIENT_EXAMPLES_OUTPUT_PATH);

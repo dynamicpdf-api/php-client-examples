@@ -1,10 +1,10 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-include_once __DIR__ . '/DynamicPdfExamples.php';
 use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\Pdf;
 use DynamicPDF\Api\LayoutDataResource;
+include_once("constants.php");
 
 class CreatingPdfDlexString
 {
@@ -15,7 +15,7 @@ class CreatingPdfDlexString
         
         $pdf = new Pdf();
         $pdf->ApiKey = $apikey;
-         $pdf->AddDlex("samples/dlex-layout/SimpleReportWithCoverPage.dlex", $layoutData);
+         $pdf->AddDlex("samples/creating-pdf-pdf-endpoint/SimpleReportWithCoverPage.dlex", $layoutData);
 
         //call the pdf endpoint and return response
         $response = $pdf->Process();
@@ -29,3 +29,4 @@ class CreatingPdfDlexString
         }
     }
 }
+CreatingPdfDlexString::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "creating-pdf-pdf-endpoint/", CLIENT_EXAMPLES_OUTPUT_PATH);

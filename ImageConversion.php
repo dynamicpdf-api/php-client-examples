@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
-include_once __DIR__ . '/DynamicPdfExamples.php';
+include_once("constants.php");
 use DynamicPDF\Api\Pdf;
 use DynamicPDF\Api\ImageResource;
 use DynamicPDF\Api\ImageInput;
@@ -48,3 +48,4 @@ class ImageConversion
         }
     }
 }
+ImageConversion::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "image-conversion/", CLIENT_EXAMPLES_OUTPUT_PATH);

@@ -1,7 +1,7 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-include_once __DIR__ . '/DynamicPdfExamples.php';
+include_once("constants.php");
 use DynamicPDF\Api\ImageResource;
 use DynamicPDF\Api\ImageInfo;
 
@@ -30,3 +30,4 @@ class ImageInfoExample
         echo ($response->JsonContent);
     }
 }
+ImageInfoExample::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "/image-info/");

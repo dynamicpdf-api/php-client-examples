@@ -2,7 +2,7 @@
 
 use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\PdfText;
-include_once __DIR__ . '/DynamicPdfExamples.php';
+include_once("constants.php");
 require __DIR__ . '/vendor/autoload.php';
 
 class PdfTextExample
@@ -16,3 +16,4 @@ class PdfTextExample
         echo ($response->JsonContent);
     }
 }
+PdfTextExample::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "pdf-info/");

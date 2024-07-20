@@ -4,7 +4,7 @@ require __DIR__ . '/vendor/autoload.php';
 use DynamicPDF\Api\LayoutDataResource;
 use DynamicPDF\Api\DlexLayout;
 use DynamicPDF\Api\DlexResource;
-include_once __DIR__ . '/DynamicPdfExamples.php';
+include_once("constants.php");
 
 
 class DlexLayoutExample
@@ -45,4 +45,4 @@ class DlexLayoutExample
         }  
     }
 }
-#DlexLayoutExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/creating-pdf-dlex-layout/", DynamicPdfExamples::$OUTPUT_PATH);
+DlexLayoutExample::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "/creating-pdf-dlex-layout/", CLIENT_EXAMPLES_OUTPUT_PATH);

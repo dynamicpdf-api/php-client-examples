@@ -4,7 +4,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use DynamicPDF\Api\LayoutDataResource;
 use DynamicPDF\Api\DlexLayout;
-
+include_once("constants.php");
 class GettingStartedInFive
 {
     public static function Run(string $apikey, string $path, string $output_path)
@@ -24,3 +24,4 @@ class GettingStartedInFive
         }
     }
 }
+GettingStartedInFive::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "getting-started/", CLIENT_EXAMPLES_OUTPUT_PATH);

@@ -4,9 +4,8 @@ use DynamicPDF\Api\AdditionalResourceType;
 use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\Pdf;
 use DynamicPDF\Api\LayoutDataResource;
-include_once __DIR__ . '/DynamicPdfExamples.php';
 require __DIR__ . '/vendor/autoload.php';
-
+include_once("constants.php");
 
 class CreatePdfDlex {
 
@@ -56,4 +55,4 @@ class CreatePdfDlex {
         }
     }
 }
-#CreatePdfDlex::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/creating-pdf-pdf-endpoint/", DynamicPdfExamples::$OUTPUT_PATH);
+CreatePdfDlex::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "/creating-pdf-pdf-endpoint/", CLIENT_EXAMPLES_OUTPUT_PATH);

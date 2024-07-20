@@ -1,9 +1,9 @@
 <?php
-
 require __DIR__ . '/vendor/autoload.php';
-include_once __DIR__ . '/DynamicPdfExamples.php';
-use DynamicPDF\Api\PdfResource;
+
+include_once("constants.php");
 use DynamicPDF\Api\PdfInfo;
+use DynamicPDF\Api\PdfResource;
 
 class PdfInfoExample
 {
@@ -16,3 +16,4 @@ class PdfInfoExample
         echo (json_encode($response));
     }
 }
+PdfInfoExample::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "pdf-info/");

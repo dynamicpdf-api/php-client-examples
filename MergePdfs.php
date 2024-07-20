@@ -1,7 +1,7 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-include_once __DIR__ . '/DynamicPdfExamples.php';
+include_once("constants.php");
 use DynamicPDF\Api\Pdf;
 use DynamicPDF\Api\PdfResource;
 
@@ -32,4 +32,4 @@ class MergePdfs
         }
     }
 }
-#MergePdfs::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/merge-pdfs-pdf-endpoint/", DynamicPdfExamples::$OUTPUT_PATH);
+MergePdfs::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "/merge-pdfs-pdf-endpoint/", CLIENT_EXAMPLES_OUTPUT_PATH);

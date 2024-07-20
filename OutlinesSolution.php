@@ -5,7 +5,7 @@ use DynamicPDF\Api\Elements\ElementPlacement;
 use DynamicPDF\Api\Elements\TextElement;
 use DynamicPDF\Api\PdfResource;
 require __DIR__ . '/vendor/autoload.php';
-include_once __DIR__ . '/DynamicPdfExamples.php';
+include_once("constants.php");
 
 class OutlinesSolution
 {
@@ -49,3 +49,4 @@ class OutlinesSolution
 
     }
 }
+OutlinesSolution::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "outlines/", CLIENT_EXAMPLES_OUTPUT_PATH);

@@ -1,7 +1,7 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-include_once __DIR__ . '/DynamicPdfExamples.php';
+include_once("constants.php");
 use DynamicPDF\Api\PdfXmp;
 use DynamicPDF\Api\PdfResource;
 
@@ -22,4 +22,4 @@ class GetXmpMetaData {
         }
     }
 }
-#GetXmpMetaData::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/get-xmp-metadata-pdf-xmp-endpoint/");
+GetXmpMetaData::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "/get-xmp-metadata-pdf-xmp-endpoint/");

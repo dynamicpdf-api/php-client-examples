@@ -1,10 +1,10 @@
 <?php
-include_once __DIR__ . '/DynamicPdfExamples.php';
 require __DIR__ . '/vendor/autoload.php';
 use DynamicPDF\Api\Pdf;
 use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\RgbColor;
 use DynamicPDF\Api\UrlAction;
+include_once("constants.php");
 
 class AddBookmarks
 {
@@ -63,5 +63,5 @@ class AddBookmarks
         }
     }
 }
-#AddBookmarks::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/add-bookmarks/", DynamicPdfExamples::$OUTPUT_PATH);
+AddBookmarks::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "/users-guide/", CLIENT_EXAMPLES_OUTPUT_PATH);
     

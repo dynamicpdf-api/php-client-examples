@@ -1,10 +1,9 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-include_once __DIR__ . '/DynamicPdfExamples.php';
 use DynamicPDF\Api\Pdf;
 use DynamicPDF\Api\FormField;
-
+include_once("constants.php");
 class CompletingAcroForm
 {
     public static function Run(string $apikey, string $path, string $output_path)
@@ -51,4 +50,4 @@ class CompletingAcroForm
 
     }
 }
-#CompletingAcroForm::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/fill-acro-form-pdf-endpoint/", DynamicPdfExamples::$OUTPUT_PATH);
+CompletingAcroForm::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "/fill-acro-form-pdf-endpoint/", CLIENT_EXAMPLES_OUTPUT_PATH);

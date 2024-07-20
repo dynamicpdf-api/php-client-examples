@@ -2,7 +2,7 @@
 use DynamicPDF\Api\ExcelInput;
 use DynamicPDF\Api\ExcelResource;
 use DynamicPDF\Api\Pdf;
-include_once __DIR__ . '/DynamicPdfExamples.php';
+include_once("constants.php");
 require __DIR__ . '/vendor/autoload.php';
 class ExcelToPdf {
     
@@ -20,4 +20,4 @@ class ExcelToPdf {
 
     }
 }
-#ExcelToPdf::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/users-guide/", DynamicPdfExamples::$OUTPUT_PATH);
+ExcelToPdf::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "/users-guide/", CLIENT_EXAMPLES_OUTPUT_PATH);

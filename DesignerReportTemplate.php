@@ -2,7 +2,7 @@
 
 use DynamicPDF\Api\LayoutDataResource;
 use DynamicPDF\Api\DlexLayout;
-include_once __DIR__ . '/DynamicPdfExamples.php';
+include_once("constants.php");
 require __DIR__ . '/vendor/autoload.php';
 
 class DesignerReportTemplate
@@ -22,3 +22,4 @@ class DesignerReportTemplate
         }       
     }
 }
+DesignerReportTemplate::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "creating-a-report-template-designer/", CLIENT_EXAMPLES_OUTPUT_PATH);

@@ -1,10 +1,12 @@
 <?php
 use DynamicPDF\Api\HtmlResource;
 use DynamicPDF\Api\Pdf;
-include_once __DIR__ . '/DynamicPdfExamples.php';;
+include_once("constants.php");
+require __DIR__ . '/vendor/autoload.php';
 class PdfHtmlCssWorkAroundExample {
 
     public static function Run(string $apikey, string $path, $outpath){
+
         $pdf = new Pdf();
         $pdf->ApiKey =$apikey;
 
@@ -30,3 +32,4 @@ class PdfHtmlCssWorkAroundExample {
 
     }
 }
+PdfHtmlCssWorkAroundExample::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "users-guide/", CLIENT_EXAMPLES_OUTPUT_PATH);

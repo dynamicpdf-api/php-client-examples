@@ -1,7 +1,7 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-include_once __DIR__ . '/DynamicPdfExamples.php';
+include_once("constants.php");
 use DynamicPDF\Api\Pdf;
 use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\WordInput;
@@ -32,15 +32,13 @@ class MergeSolution
         $imageInput = $pdf->AddImage($imageResource);
 
 
-        $file =  DynamicPdfExamples::GetFileData($path . "/users-guide/products.html");
+        $file =  Utility::GetFileData($path . "/users-guide/products.html");
         $htmlResource = new HtmlResource($file);
         $pdf->AddHtml($htmlResource);
 
 
         $layoutData = new LayoutDataResource($path . "/creating-pdf-dlex-layout/creating-pdf-dlex-layout.json");
         $pdf->AddDlex("samples/creating-pdf-dlex-layout-endpoint/creating-pdf-dlex-layout.dlex", $layoutData);
-
-
 
         $response = $pdf->Process();
 
@@ -54,4 +52,4 @@ class MergeSolution
         }
     }
 }
-MergeSolution::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH, DynamicPdfExamples::$OUTPUT_PATH);
+MergeSolution::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH, CLIENT_EXAMPLES_OUTPUT_PATH);

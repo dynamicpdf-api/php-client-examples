@@ -26,4 +26,4 @@ class ExtractTextExample
         }
     }
 }
-#ExtractTextExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/extract-text-pdf-text-endpoint/");
+ExtractTextExample::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "/extract-text-pdf-text-endpoint/");

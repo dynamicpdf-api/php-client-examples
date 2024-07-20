@@ -9,7 +9,7 @@ use DynamicPDF\Api\LineStyle;
 use DynamicPDF\Api\RgbColor;
 use DynamicPDF\Api\Pdf;
 use DynamicPDF\Api\ImageResource;
-include_once __DIR__ . '/DynamicPdfExamples.php';
+include_once("constants.php");
 require __DIR__ . '/vendor/autoload.php';
 
 class SolutionImagesTextRecExample
@@ -64,4 +64,4 @@ class SolutionImagesTextRecExample
         }       
     }
 }
-SolutionImagesTextRecExample::Run(DynamicPdfExamples::$API_KEY, DynamicPdfExamples::$BASE_PATH . "/images-text-recs/", DynamicPdfExamples::$OUTPUT_PATH);
+SolutionImagesTextRecExample::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "/images-text-recs/", CLIENT_EXAMPLES_OUTPUT_PATH);

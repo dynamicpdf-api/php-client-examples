@@ -2,9 +2,9 @@
 use DynamicPDF\Api\WordInput;
 use DynamicPDF\Api\WordResource;
 use DynamicPDF\Api\Pdf;
-include_once __DIR__ . '/DynamicPdfExamples.php';
+include_once("constants.php");
 require __DIR__ . '/vendor/autoload.php';
-class WordToPdf {
+class WordToPdfExample {
     
     public static function Run(string $apikey, string $path, string $output_path){
 
@@ -38,5 +38,5 @@ class WordToPdf {
         file_put_contents($output_path . "word-pdf-output-php.pdf", $pdfResponse->Content);
 
     }
-
 }
+WordToPdfExample::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "word-pdf/", CLIENT_EXAMPLES_OUTPUT_PATH);
