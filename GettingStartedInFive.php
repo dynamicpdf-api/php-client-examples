@@ -1,7 +1,12 @@
 <?php
+// ========================================================================
+// Author: DynamicPDF.COM CETE  www.dynamicpdf.com
+// Copyright: (c) 2021 DynamicPDF Cloud API
+// License: MIT - for additional information see ./LICENSE in this project.
+// Errors: Please report any errors in software to support@dynamicpdf.com
+// ========================================================================
 
 require __DIR__ . '/vendor/autoload.php';
-
 use DynamicPDF\Api\LayoutDataResource;
 use DynamicPDF\Api\DlexLayout;
 include_once("constants.php");

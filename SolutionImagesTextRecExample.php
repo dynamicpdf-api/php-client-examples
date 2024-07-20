@@ -1,4 +1,10 @@
 <?php
+// ========================================================================
+// Author: DynamicPDF.COM CETE  www.dynamicpdf.com
+// Copyright: (c) 2021 DynamicPDF Cloud API
+// License: MIT - for additional information see ./LICENSE in this project.
+// Errors: Please report any errors in software to support@dynamicpdf.com
+// ========================================================================
 
 use DynamicPDF\Api\Elements\TextElement;
 use DynamicPDF\Api\Elements\ImageElement;
@@ -64,4 +70,4 @@ class SolutionImagesTextRecExample
         }       
     }
 }
-SolutionImagesTextRecExample::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "/images-text-recs/", CLIENT_EXAMPLES_OUTPUT_PATH);
+SolutionImagesTextRecExample::Run(CLIENT_EXAMPLES_API_KEY, CLIENT_EXAMPLES_BASE_PATH . "images-text-recs/", CLIENT_EXAMPLES_OUTPUT_PATH);

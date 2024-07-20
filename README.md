@@ -40,6 +40,11 @@ You can then run each example individually.
 ```bash
 php <fileName>.php
 ```
+You can also run all the examples at once by running `dynamicpdf-examples.php`
+
+```bash
+php dynamicpdf-examples.php
+```
 
 ## Resources
 
