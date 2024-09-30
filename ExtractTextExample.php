@@ -10,7 +10,7 @@ use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\PdfText;
 
 require __DIR__ . '/vendor/autoload.php';
-include_once __DIR__ . '/DynamicPdfExamples.php';
+include_once("constants.php");
 class ExtractTextExample
 {
     public static function Run(string $apikey, string $path)

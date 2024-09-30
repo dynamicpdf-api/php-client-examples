@@ -17,7 +17,6 @@ class MergePdfs
     {
         $pdf = new Pdf();
         $pdf->ApiKey = $apikey;
-        $pdf->BaseUrl = "https://api-euw.dpdf.io/";
 
         $pdfInput = $pdf->AddPdf(new PdfResource($path . "DocumentA.pdf"));
         $pdfInput->StartPage = 1;
