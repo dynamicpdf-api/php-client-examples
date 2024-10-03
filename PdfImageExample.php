@@ -1,4 +1,5 @@
 <?php
+use DynamicPDF\Api\Imaging\PngImageFormat;
 // ========================================================================
 // Author: DynamicPDF.COM CETE  www.dynamicpdf.com
 // Copyright: (c) 2021 DynamicPDF Cloud API
@@ -25,7 +26,9 @@ class PdfImageExample
     {
         $pdfResource = new PdfResource($path);
         $pdfImage = new PdfImage($pdfResource);
-        //$pdfImage->ApiKey =$apikey;
+        $pdfImage->ApiKey =$apikey;
+
+        $pdfImage->ImageFormat = new PngImageFormat();
 
         $response = $pdfImage->Process();
 
