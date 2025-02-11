@@ -18,6 +18,7 @@ class DlexLayoutExample
 
     public static function Run(string $apikey, string $path, string $output_path){
         DlexLayoutExample::RunCloud($apikey, $path, $output_path);
+        DlexLayoutExample::RunLocalOne($apikey, $path, $output_path);
         DlexLayoutExample::RunLocal($apikey, $path, $output_path);
     }
 
@@ -35,12 +36,29 @@ class DlexLayoutExample
         }  
     }
 
-    public static function RunLocal(string $apikey, string $path, string $output_path)
+    public static function RunLocalOne(string $apikey, string $path, string $output_path)
     {
         $layoutData = new LayoutDataResource($path . "creating-pdf-dlex-layout.json");
         $dlexResource = new DlexResource($path . "creating-pdf-dlex-layout.dlex", "creating-pdf-dlex-layout.dlex");
         $dlexEndpoint = new DlexLayout($dlexResource, $layoutData);
         $dlexEndpoint->AddAdditionalResource($path . "creating-pdf-dlex-layout.png", "creating-pdf-dlex-layout.png");
+        $dlexEndpoint->ApiKey = $apikey;
+        $response = $dlexEndpoint->Process();
+        if($response->IsSuccessful)
+        {
+            file_put_contents($output_path . "php-dlex-layout-one-local-example-output.pdf", $response->Content);
+        } else { 
+            echo($response->ErrorJson);
+        }  
+    }
+    public static function RunLocal(string $apikey, string $path, string $output_path)
+    {
+        $layoutData = new LayoutDataResource($path . "ExampleTemplate.json");
+        $dlexResource = new DlexResource($path . "ExampleTemplate.dlex", "ExampleTemplate.dlex");
+        $dlexEndpoint = new DlexLayout($dlexResource, $layoutData);
+        $dlexEndpoint->AddAdditionalResource($path . "signature-one.png", "signature-one.png");
+        $dlexEndpoint->AddAdditionalResource($path . "template_example.pdf", "template_example.pdf");
+
         $dlexEndpoint->ApiKey = $apikey;
         $response = $dlexEndpoint->Process();
         if($response->IsSuccessful)
