@@ -50,7 +50,7 @@ php dynamicpdf-examples.php
 
 To obtain the resources for the project, login to [https://dpdf.io/](https://dpdf.io/) (assuming you have an account), and go to the **File Manager**. You use the `samples` folder to add the resources for the tutorials and examples from this project.
 
-- [File Manager Samples](https://cloud.dynamicpdf.com/docs/usersguide/environment-manager/environment-manager-sample-resources)  
+- [File Manager Samples](https://dpdf.io/docs/usersguide/environment-manager/environment-manager-sample-resources)  
 
 You need the following samples folder in your Cloud Storage space to run all the examples.
 
@@ -71,21 +71,21 @@ The following table lists the available tutorials.
 
 | Tutorial Title                                     | Project/File/Class      | Tutorial Location                                            |
 | -------------------------------------------------- | ----------------------- | ------------------------------------------------------------ |
-| Merging PDFs                                       | MergePdfs               | https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/merging-pdfs |
-| Completing an AcroForm                             | `CompletingAcroForm`    | https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/form-completion |
-| Creating a PDF Using a DLEX and the `pdf` Endpoint | `CreatingPdfDlex`       | https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/dlex-pdf-endpoint |
-| Adding Bookmarks to a PDF                          | `AddBookmarks`          | https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/bookmarks |
-| Creating a PDF Using the `dlex-layout` Endpoint    | `CreatingPdfDlexLayout` | https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/dlex-layout |
-| Extracting Image Metadata                          | `GetImageInfo`          | https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/image-info |
-| Extract PDF Metadata                               | `GetPdfInfo`            | https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/pdf-info |
-| Extracting PDF's Text                              | `ExtractingText`        | https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/pdf-text |
-| Extract XMP Metadata                               | `GetXmpMetaData`        | https://cloud.dynamicpdf.com/docs/tutorials/cloud-api/pdf-xmp |
+| Merging PDFs                                       | MergePdfs               | https://dpdf.io/docs/tutorials/cloud-api/merging-pdfs |
+| Completing an AcroForm                             | `CompletingAcroForm`    | https://dpdf.io/docs/tutorials/cloud-api/form-completion |
+| Creating a PDF Using a DLEX and the `pdf` Endpoint | `CreatingPdfDlex`       | https://dpdf.io/docs/tutorials/cloud-api/dlex-pdf-endpoint |
+| Adding Bookmarks to a PDF                          | `AddBookmarks`          | https://dpdf.io/docs/tutorials/cloud-api/bookmarks |
+| Creating a PDF Using the `dlex-layout` Endpoint    | `CreatingPdfDlexLayout` | https://dpdf.io/docs/tutorials/cloud-api/dlex-layout |
+| Extracting Image Metadata                          | `GetImageInfo`          | https://dpdf.io/docs/tutorials/cloud-api/image-info |
+| Extract PDF Metadata                               | `GetPdfInfo`            | https://dpdf.io/docs/tutorials/cloud-api/pdf-info |
+| Extracting PDF's Text                              | `ExtractingText`        | https://dpdf.io/docs/tutorials/cloud-api/pdf-text |
+| Extract XMP Metadata                               | `GetXmpMetaData`        | https://dpdf.io/docs/tutorials/cloud-api/pdf-xmp |
 
 # Support
 
 The primary source for the DynamicPDF API support is through [Stack Overflow](https://stackoverflow.com/questions/tagged/dynamicpdf-api). Please use the "[dynamicpdf-api](https://stackoverflow.com/questions/tagged/dynamicpdf-api)" tag to ask questions. Our support team actively monitors the tag and responds promptly to any questions.  Also, let us know you asked the question by following up with an email to [support@dynamicpdf.com](mailto:support@dynamicpdf.com). 
 
-## Pro Plan Subscribers[#](https://cloud.dynamicpdf.com/support#pro-plan-subscribers)
+## Pro Plan Subscribers[#](https://dpdf.io/support#pro-plan-subscribers)
 
 Ticket support is available to Pro Plan subscribers. But we still encourage you to help the community by posting on Stack Overflow when possible. You can also email [support@dynamicpdf.com](mailto:support@dynamicpdf.com) if you need to ask something specific to your use case that may not help the DynamicPDF Cloud API community.
 

@@ -7,6 +7,8 @@
 // ========================================================================
 
 require __DIR__ . '/vendor/autoload.php';
+
+use DynamicPDF\Api\OutlineStyle;
 use DynamicPDF\Api\Pdf;
 use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\RgbColor;
@@ -33,10 +35,6 @@ class AddBookmarks
         $inputC = $pdf->AddPdf($resourceC);
 		$inputC->Id = "documentC";
 
-        array_push($pdf->Inputs, $inputA);
-        array_push($pdf->Inputs, $inputB);
-        array_push($pdf->Inputs, $inputC);
-        
         //create a root outline and then add the three documents as children Outline instances
 
         $rootOutline = $pdf->Outlines->Add("Three Bookmarks");
@@ -44,14 +42,15 @@ class AddBookmarks
 
 		$outlineA = $rootOutline->Children->Add("DocumentA", $inputA);
 		$outlineB = $rootOutline->Children->Add("DocumentB", $inputB, 2);
-        $outlineC = $rootOutline->Children->Add("DocumentC", $inputC);
+
+        $rootOutline->Children->Add("DocumentC", $inputC)->Color = RgbColor::Purple();
 
         //add some color to the outline elements
 
        $rootOutline->Color = RgbColor::Red();
+       $rootOutline->Style = OutlineStyle::BoldItalic;
        $outlineA->Color = RgbColor::Orange();
        $outlineB->Color = RgbColor::Green();
-       $outlineA->Color = RgbColor::Purple();
         
   		//add an outline element that links to a URL
 

@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c355a25929742a2ce3e7464ef330a8da",
+    "content-hash": "0a53b4fa99646013f6218c84802b0a18",
     "packages": [
         {
             "name": "dynamicpdf/api",
-            "version": "v2.2.1",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dynamicpdf-api/php-client.git",
-                "reference": "5fbe3414d0c983331b39614fc3a993383116fb16"
+                "reference": "13b912cc764e739447e70133abb0da00b19c1adb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dynamicpdf-api/php-client/zipball/5fbe3414d0c983331b39614fc3a993383116fb16",
-                "reference": "5fbe3414d0c983331b39614fc3a993383116fb16",
+                "url": "https://api.github.com/repos/dynamicpdf-api/php-client/zipball/13b912cc764e739447e70133abb0da00b19c1adb",
+                "reference": "13b912cc764e739447e70133abb0da00b19c1adb",
                 "shasum": ""
             },
             "require": {
@@ -57,9 +57,9 @@
             ],
             "support": {
                 "issues": "https://github.com/dynamicpdf-api/php-client/issues",
-                "source": "https://github.com/dynamicpdf-api/php-client/tree/v2.2.1"
+                "source": "https://github.com/dynamicpdf-api/php-client/tree/v2.3.0"
             },
-            "time": "2024-09-17T06:46:23+00:00"
+            "time": "2025-02-28T04:42:29+00:00"
         }
     ],
     "packages-dev": [],
@@ -70,5 +70,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }

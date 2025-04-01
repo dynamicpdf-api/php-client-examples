@@ -37,7 +37,7 @@ else
 
 include_once __DIR__ . '/AddBookmarks.php';
 include_once __DIR__ . '/CompletingAcroForm.php';
-//include_once __DIR__ . '/CreatePdfDlex.php';
+include_once __DIR__ . '/CreatePdfDlex.php';
 include_once __DIR__ . '/DesignerReportTemplate.php';
 include_once __DIR__ . '/DlexLayoutExample.php';
 include_once __DIR__ . '/ExtractTextExample.php';

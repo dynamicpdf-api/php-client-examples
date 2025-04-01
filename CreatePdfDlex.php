@@ -7,6 +7,7 @@
 // ========================================================================
 
 use DynamicPDF\Api\AdditionalResourceType;
+use DynamicPDF\Api\DlexResource;
 use DynamicPDF\Api\PdfResource;
 use DynamicPDF\Api\Pdf;
 use DynamicPDF\Api\LayoutDataResource;
@@ -25,10 +26,10 @@ class CreatePdfDlex {
 
         $pdf = new Pdf();
         $pdf->ApiKey =$apikey;
+        $dlexResource = new DlexResource($path . "SimpleReportWithCoverPage.dlex");
         $layoutData = new LayoutDataResource($path . "SimpleReportWithCoverPage.json");
+        $pdf->AddDlex($dlexResource, $layoutData);
         $pdf->AddAdditionalResource($path . "Northwind Logo.gif", AdditionalResourceType::Image, "Northwind Logo.gif");
-
-        $pdf->AddDlex("samples/creating-pdf-pdf-endpoint/SimpleReportWithCoverPage.dlex", $layoutData);
 
         //call the pdf endpoint and return response
         $response = $pdf->Process();
@@ -36,7 +37,7 @@ class CreatePdfDlex {
         //if response is successful the save the PDF returned from endpoint
         if($response->IsSuccessful)
         {
-            file_put_contents($output_path . "create-pdf-dlex-php-output.pdf", $response->Content);
+            file_put_contents($output_path . "create-pdf-dlex-php-output-local.pdf", $response->Content);
         } else { 
             echo($response->ErrorJson);
         }
@@ -55,7 +56,7 @@ class CreatePdfDlex {
         //if response is successful the save the PDF returned from endpoint
         if($response->IsSuccessful)
         {
-            file_put_contents($output_path . "create-pdf-dlex-php-output.pdf", $response->Content);
+            file_put_contents($output_path . "create-pdf-dlex-php-output-remote.pdf", $response->Content);
         } else { 
             echo($response->ErrorJson);
         }

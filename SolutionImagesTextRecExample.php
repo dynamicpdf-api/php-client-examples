@@ -56,7 +56,7 @@ class SolutionImagesTextRecExample
         array_push($pageInput->Elements, $recElement);
     
         $imgResource = new ImageResource($path . "dynamicpdfLogo.png", "dynamicpdfLogo.png");
-        $imageElement = new ImageElement($imgResource, ElementPlacement::TopCenter, 835, 75);
+        $imageElement = new ImageElement($imgResource, ElementPlacement::TopLeft, 835, 75);
         array_push($pageInput->Elements, $imageElement);
 
         echo($pdf->GetInstructionsJson(true));

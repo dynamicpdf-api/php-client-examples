@@ -114,20 +114,20 @@ class InstructionsExample
 		$pageInput = $pdf->AddPage(1008, 612);
 		$pageNumberingElement =	new PageNumberingElement("A", ElementPlacement::TopRight);
 		$pageNumberingElement->Color = RgbColor::Red();
-		$pageNumberingElement->Font = Font::Helvetica();
+		$pageNumberingElement->Font(Font::Helvetica());
 		$pageNumberingElement->FontSize = 42;
 
 		$cloudResourceName = "samples/users-guide-resources/Calibri.otf";
 
 		$pageNumberingElementTwo = new PageNumberingElement("B", ElementPlacement::TopLeft);
 		$pageNumberingElementTwo->Color = RgbColor::DarkOrange();
-		$pageNumberingElementTwo->Font = new Font($cloudResourceName);
+		$pageNumberingElementTwo->Font(new Font($cloudResourceName));
 		$pageNumberingElementTwo->FontSize = 32;
-
-		$filePathFont = $basePath . "cnr.otf";
+		
 		$pageNumberingElementThree = new PageNumberingElement("C", ElementPlacement::TopCenter);
 		$pageNumberingElementThree->Color = RgbColor::Green();
-		$pageNumberingElementThree->Font = Font::FromFile($filePathFont);
+		$font = Font::FromFile($basePath . "cnr.otf");
+		$pageNumberingElementThree->Font($font);
 		$pageNumberingElementThree->FontSize = 42;
 
 		array_push($pageInput->Elements, $pageNumberingElement);
@@ -254,7 +254,7 @@ class InstructionsExample
 		$template = new Template("Temp1");
 		$element = new TextElement("Hello World", ElementPlacement::TopCenter);
 		array_push($template->Elements, $element);
-		$input->Template = $template;
+		$input->SetTemplate($template);
 		return $pdf;
 	}
 }
